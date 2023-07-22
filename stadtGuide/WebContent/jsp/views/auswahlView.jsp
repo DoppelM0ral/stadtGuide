@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link type="text/css" rel="stylesheet" href="../../css/auswahlViewCSS.css"/>
-<title>Insert title here</title>
+<title>Stadtguide</title>
 </head>
 <body>
 
@@ -18,8 +18,29 @@
 				</td>
 			</tr>
 			<tr>
-				<td id="message">
-					Bitte wähle eine Stadt oder füge eine neue hinzu
+				<td id="message" colspan="2" align="center">
+					Bitte wähle eine Stadt oder lege eine neue an
+				</td>
+			</tr>
+			<tr>
+				<td align="center">
+					<select name="gewaehlteStadt">
+						<option>Auswählen</option>
+						<option>Ludwigshafen</option>
+						<option>Mannheim</option>
+						<option>Kaiserslautern</option>
+					</select>
+				</td>
+				<td align="center">
+					<input type="text" name="newCityName" value="">
+				</td>
+			</tr>
+			<tr>
+				<td align="center">
+					<input type="submit" name="confirmBttn" value="Bestätigen">
+				</td>
+				<td align="center">
+					<input type="submit" name="addNewBttn" value="Neue Stadt anlegen">
 				</td>
 			</tr>
 		</table>
