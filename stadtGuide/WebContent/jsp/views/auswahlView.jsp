@@ -4,9 +4,27 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link type="text/css" rel="stylesheet" href="../../css/auswahlViewCSS.css"/>
 <title>Insert title here</title>
 </head>
 <body>
+
+
+	<form>
+		<table>
+			<tr>
+				<td id="guide" colspan="2">
+					Dein Opensource Stadtguide
+				</td>
+			</tr>
+			<tr>
+				<td id="message">
+					Bitte wähle eine Stadt oder füge eine neue hinzu
+				</td>
+			</tr>
+		</table>
+	</form>
+
 
 </body>
 </html>

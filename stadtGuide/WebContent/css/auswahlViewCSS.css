@@ -1,0 +1,11 @@
+@CHARSET "ISO-8859-1";
+td#guide{
+	color: green;
+	font-size: 30pt;
+	font-weight: bold;
+	
+}
+
+td#message{
+	color: grey;
+}
