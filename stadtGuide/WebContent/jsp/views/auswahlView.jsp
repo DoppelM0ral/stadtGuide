@@ -9,7 +9,7 @@
 </head>
 <body>
 
-
+	//Feld für den Stadtguide
 	<form>
 		<table>
 			<tr>
@@ -45,6 +45,16 @@
 			</tr>
 		</table>
 	</form>
+	
+	//Feld für Hinweise
+		<table id="tips">
+			<tr>
+				<td>
+					Hinweise
+				</td>
+			</tr>
+		</table>
+	
 
 
 </body>

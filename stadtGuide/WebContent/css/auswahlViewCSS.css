@@ -8,6 +8,15 @@ table{
   	margin-right: auto;
 }
 
+table#tips{
+	border: solid;
+	border-color: #a81206;
+	border-radius: 15px;
+	margin-left: auto;
+  	margin-right: auto;
+  	
+}
+
 td{
 	padding-bottom: 16px;
 }
