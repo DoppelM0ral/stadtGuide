@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link type="text/css" rel="stylesheet" href="../../css/addStadtViewCSS.css"/>
 <title>Insert title here</title>
 </head>
 <body>
@@ -65,6 +66,14 @@
 					</td>
 					<td align="center">
 						<input type="text" name="plzStadt" value="">
+					</td>
+				</tr>
+				<tr>
+					<td align="center">
+						<input type="submit" name="backBttn" value="Zurück zur Auswahl">
+					</td>
+					<td align="center">
+						<input type="submit" name="createBttn" value="Bestätigen">
 					</td>
 				</tr>
 			</table>
