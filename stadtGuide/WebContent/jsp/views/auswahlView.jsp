@@ -8,9 +8,14 @@
 <title>Stadtguide</title>
 </head>
 <body>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
 
 	//Feld für den Stadtguide
-	<form>
+	<form action="../applications/auswahlAppl.jsp" method="get">
 		<table>
 			<tr>
 				<td id="guide" colspan="2">

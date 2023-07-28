@@ -5,10 +5,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link type="text/css" rel="stylesheet" href="../../css/addStadtViewCSS.css"/>
-<title>Insert title here</title>
+<title>Stadtguide - neue Stadt</title>
 </head>
 <body>
-	<form>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<form action="../applications/addStadtAppl.jsp" method="get">
 			<table>
 				<tr>
 					<td id="guide" colspan="2">
@@ -65,7 +70,7 @@
 						<input type="text" name="einwohnerStadt" value="">
 					</td>
 					<td align="center">
-						<input type="text" name="plzStadt" value="">
+						<input type="text" name="Stadt" value="">
 					</td>
 				</tr>
 				<tr>

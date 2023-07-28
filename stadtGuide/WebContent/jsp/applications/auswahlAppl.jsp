@@ -4,9 +4,39 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Application</title>
 </head>
 <body>
+
+	This shouldnt be possible :)
+	Gotta work on that
+	
+		<%
+		//Übergabe der Parameter
+		String gewaehlteStadt = request.getParameter("gewaehlteStadt");
+		String confirmBttn = request.getParameter("confrimBttn");
+		String newCityName = request.getParameter("newCityName");
+		String addNewBttn = request.getParameter("addNewBttn");
+		
+		//NullCheck und Aufbereitung der parameter
+		if (gewaehlteStadt == null){
+			gewaehlteStadt = "";}
+		if (confirmBttn == null){
+			confirmBttn = "";}
+		if (newCityName == null){
+			newCityName = "";}
+		if (addNewBttn == null){
+			addNewBttn = "";}
+		
+		//Application
+		if (confirmBttn.equals("Bestätigen")){
+			}
+		else if (addNewBttn.equals("Neue Stadt anlegen")){
+			response.sendRedirect("../views/addStadtView.jsp");	
+		}else{
+			response.sendRedirect("../views/auswahlView.jsp");
+		}
+		%>
 
 </body>
 </html>
