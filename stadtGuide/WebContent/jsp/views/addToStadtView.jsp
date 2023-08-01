@@ -34,6 +34,7 @@
 							<option value="restaurant1">Restaurant 1</option>
 							<option value="restaurant2">Restaurant 2</option>
 						</select>
+						
 					</td>
 					<td>
 						<select name="Museen" multiple size="2">
