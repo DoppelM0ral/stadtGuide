@@ -30,12 +30,11 @@
 		
 		//Application
 		if (confirmBttn.equals("Bestätigen")){
-			}
+			response.sendRedirect("../views/stadtView.jsp");}
 		else if (addNewBttn.equals("Neue Stadt anlegen")){
-			response.sendRedirect("../views/addStadtView.jsp");	
-		}else{
-			response.sendRedirect("../views/auswahlView.jsp");
-		}
+			response.sendRedirect("../views/addStadtView.jsp");}
+		else{
+			response.sendRedirect("../views/auswahlView.jsp");}
 		%>
 
 </body>
