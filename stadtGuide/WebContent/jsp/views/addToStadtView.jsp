@@ -18,6 +18,7 @@
 				<tr>
 					<td id="message" colspan="2" align="center">
 						Was m&ouml;chten Sie zu Ihrer Stadt dazu w&auml;hlen
+						
 					</td>
 				</tr>
 				<tr>
