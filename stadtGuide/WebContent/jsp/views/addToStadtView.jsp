@@ -4,11 +4,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link type="text/css" rel="stylesheet" href="../../css/addStadtViewCSS.css"/>
 <title>Insert title here</title>
 </head>
 <body>
 <form>
-			<table>
+		<table>
 				<tr>
 					<td id="guide" colspan="2">
 						Dein Opensource Stadtguide
@@ -29,12 +30,16 @@
 				</tr>
 				<tr>
 					<td>
-						<label><input type="checkbox" name="restaurant" value="m" />&nbsp;Restaurant<br></label>
-						<label><input type="checkbox" name="restVegeta" value="m" />&nbsp;Vegetarisches Restaurant<br></label>
-						<label><input type="checkbox" name="restVegan" value="m" />&nbsp;Vegane Restaurant<br></label>
+						<select name="Restaurants" multiple size="2" text-align="center">
+							<option value="restaurant1">Restaurant 1</option>
+							<option value="restaurant2">Restaurant 2</option>
+						</select>
 					</td>
 					<td>
-						<label><input type="checkbox" name="hist" value="m" />Museum<br></label>
+						<select name="Museen" multiple size="2">
+							<option value="museum1">Museum 1</option>
+							<option value="museum2">Museum 2</option>
+						</select>
 					</td>
 				</tr>
 				<tr>
@@ -47,11 +52,16 @@
 				</tr>
 				<tr>
 					<td>
-						<label><input type="checkbox" name="restVegan" value="m" />Hotel<br></label>
-						<label><input type="checkbox" name="restVegan" value="m" />Ferienwohnung<br></label>
+						<select name="Unterkuenfte" multiple size="2">
+							<option value="unterkuenft1">Unterkunft 1</option>
+							<option value="unterkunft2">Unterkunft 2</option>
+						</select>
 					</td>
 					<td>
-						<label><input type="checkbox" name="aktiv" value="m" />Aktivitaet<br></label>
+						<select name="Aktivitaeten" multiple size="2">
+							<option value="aktivitaet1">Aktivitaet 1</option>
+							<option value="aktivitaet2">Aktivitaet 2</option>
+						</select>
 					</td>
 				</tr>
 				<tr>
