@@ -7,6 +7,18 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<%
+	String addToStadt[] = request.getParameterValues("addToStadt");
+	String addBttn = request.getParameter("addBttn");
+	String returnBttn = request.getParameter("returnBttn");
+	
+	if(addToStadt == null){addToStadt = new String[0];}
+	if (addBttn == null){addBttn = "";}
+	if (returnBttn == null){returnBttn = "";}
+	
+	if(returnBttn.equals("Zurueck")){
+		response.sendRedirect("../views/stadtView.jsp");
+	}
+%>
 </body>
 </html>

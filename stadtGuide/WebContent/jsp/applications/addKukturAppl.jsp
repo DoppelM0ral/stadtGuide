@@ -7,6 +7,23 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<%
+	String newCultName = request.getParameter("newCultName");
+	String newCultAdress = request.getParameter("newCultAdress");
+	String addToCult = request.getParameter("addToCult");
+	String newCult = request.getParameter("newCult");
+	String newCultPrice = request.getParameter("newCultPrice");
+	String confirmBttn = request.getParameter("confirmBttn");
+	String returnBttn = request.getParameter("returnBttn");
+	
+	if (confirmBttn == null){confirmBttn = "";}
+	if (returnBttn == null){returnBttn = "";}
+	
+	if (confirmBttn.equals("Bestaetigen")){
+		response.sendRedirect("../views/stadtView.jsp");}
+	else if(returnBttn.equals("Zurueck")){
+		response.sendRedirect("../views/addToStadtView.jsp");}
+		
+%>
 </body>
 </html>

@@ -7,6 +7,20 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<%
+	String ernaehrung = request.getParameter("ernaehrung");
+	String unterkunft = request.getParameter("unterkunft");
+	String confirmBttn = request.getParameter("confirmBttn");
+	String newAddOnBttn = request.getParameter("newAddOnBttn");
+	
+	if(confirmBttn == null){confirmBttn = "";}
+	if(newAddOnBttn == null){newAddOnBttn = "";}
+	
+	if(confirmBttn.equals("Auswaehlen")){
+		response.sendRedirect("../views/stadtView.jsp");
+	}else if(newAddOnBttn.equals("Neu anlegen")){
+		response.sendRedirect("../views/addToStadtView.jsp");
+	}
+%>
 </body>
 </html>

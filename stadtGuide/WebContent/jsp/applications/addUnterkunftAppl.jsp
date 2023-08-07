@@ -7,6 +7,22 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<%
+	String newStayName = request.getParameter("newStayName");
+	String newStayAdress = request.getParameter("newStayAdress");
+	String addToStay = request.getParameter("addToStay");
+	String stayPreis = request.getParameter("stayPreis");
+	String confirmBttn = request.getParameter("confirmBttn");
+	String returnBttn = request.getParameter("returnBttn");
+	
+	if(confirmBttn == null){confirmBttn = "";}
+	if(returnBttn == null){returnBttn = "";}
+	
+	if(confirmBttn.equals("Bestaetigen")){
+		response.sendRedirect("../views/stadtView.jsp");
+	}else if(returnBttn.equals("Zurueck")){
+		response.sendRedirect("../views/addToStadtView.jsp");	
+	}
+%>
 </body>
 </html>
