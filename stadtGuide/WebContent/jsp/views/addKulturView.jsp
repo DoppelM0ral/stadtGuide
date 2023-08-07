@@ -4,9 +4,69 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link type="text/css" rel="stylesheet" href="../../css/addToStadtViewCSS.css"/>
 <title>Insert title here</title>
 </head>
 <body>
-
+<form action="../applications/addKulturAppl.jsp" method="get">
+		<table>
+			<tr>
+				<td id="guide" colspan="2">
+					Dein Opensource Stadtguide
+				</td>
+			</tr>
+			<tr>
+				<td id="message" colspan="2" align="center">
+					Bitte lege ein neues Restaurant an
+				</td>
+			</tr>
+			<tr>
+				<td align="center">
+					Name:
+				</td>
+				<td align="center">
+					Adresse:
+				</td>
+			</tr>
+			<tr>
+				<td align="center">
+					<input type="text" name="newCultName" value="">
+				</td>
+				<td align="center">
+					<input type="text" name="newCultAdress" value="">
+				</td>
+			</tr>
+			<tr>
+				<td align="center">
+					Welche Art der Kulturunterhaltung?
+				</td>
+				<td align="center">
+					Preis:
+				</td>
+			</tr>
+			<tr>
+				<td align="center">
+					<select name="addToCult">
+						<option value="museum">Museum</option>
+						<option value="historisch">Historischer Platz</option>
+						<option value="tour">Tour</option>
+						<option value="sehenswuerdigkeit">Sehensw&uuml;rdigkeit</option>
+					</select><br><br>
+					Sonstiges:<br> <input type="text" name="newCult" value="">
+				</td>
+				<td align="center">
+					<input type="text" name="newCultPrice" value="">
+				</td>
+			</tr>
+			<tr>
+				<td align="center">
+					<input type="submit" name="confirmBttn" value="Bestaetigen">
+				</td>
+				<td align="center">
+					<input type="submit" name="returnBttn" value="Zurueck">
+				</td>
+			</tr>
+		</table>
+	</form>
 </body>
 </html>

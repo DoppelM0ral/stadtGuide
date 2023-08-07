@@ -4,9 +4,71 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link type="text/css" rel="stylesheet" href="../../css/addToStadtViewCSS.css"/>
 <title>Insert title here</title>
 </head>
 <body>
-
+<form action="../applications/addUnterkunftAppl.jsp" method="get">
+		<table>
+			<tr>
+				<td id="guide" colspan="2">
+					Dein Opensource Stadtguide
+				</td>
+			</tr>
+			<tr>
+				<td id="message" colspan="2" align="center">
+					Bitte lege ein neues Restaurant an
+				</td>
+			</tr>
+			<tr>
+				<td align="center">
+					Name:
+				</td>
+				<td align="center">
+					Adresse:
+				</td>
+			</tr>
+			<tr>
+				<td align="center">
+					<input type="text" name="newStayName" value="">
+				</td>
+				<td align="center">
+					<input type="text" name="newStayAdress" value="">
+				</td>
+			</tr>
+			<tr>
+				<td align="center">
+					Welche Art der Unterkunft?
+				</td>
+				<td align="center">
+					Preisklasse:
+				</td>
+			</tr>
+			<tr>
+				<td align="center">
+					<select name="addToStay">
+						<option value="hotel">Hotel</option>
+						<option value="airbnb">AirBnB</option>
+						<option value="ferienwohnung">Ferienwohnung</option>
+					</select>
+				</td>
+				<td id="cc">
+					<label><input type="checkbox" name="stayPreis" value="" />0-50<br></label>
+					<label><input type="checkbox" name="stayPreis" value="" />50-100<br></label>
+					<label><input type="checkbox" name="stayPreis" value="" />100-200<br></label>
+					<label><input type="checkbox" name="stayPreis" value="" />200-300<br></label>
+					<label><input type="checkbox" name="stayPreis" value="" />>300<br></label>
+				</td>
+			</tr>
+			<tr>
+				<td align="center">
+					<input type="submit" name="confirmBttn" value="Bestaetigen">
+				</td>
+				<td align="center">
+					<input type="submit" name="returnBttn" value="Zurueck">
+				</td>
+			</tr>
+		</table>
+	</form>
 </body>
 </html>
