@@ -1,1 +1,46 @@
 @CHARSET "ISO-8859-1";
+
+table{
+	border: solid;
+	border-color: #12a806;
+	border-radius: 15px;
+	margin-left: auto;
+  	margin-right: auto;
+}
+
+table#tips{
+	border: solid;
+	border-color: #a81206;
+	border-radius: 15px;
+	margin-left: auto;
+  	margin-right: auto;
+  	
+}
+
+td{
+	padding-bottom: 16px;
+}
+
+td#guide{
+	color: green;
+	font-size: 30pt;
+	font-weight: bold;
+	padding: 16px 32px;
+	
+}
+
+td#message{
+	color: gray;
+	padding-bottom: 16px;
+
+}
+
+input[type="submit"] {
+	color: white;
+	background-color: #12a806;
+	border: none;
+	border-radius: 3px;
+	padding: 5px 5px;
+	
+	
+}
