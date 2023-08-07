@@ -8,13 +8,14 @@
 <title>Stadtguide</title>
 </head>
 <body>
+<jsp:useBean id="ab" class="stadtGuideBeans.auswahlBean" scope="session"/>
+<jsp:useBean id="mb" class="stadtGuideBeans.messageBean" scope="session"/>
 	<br>
 	<br>
 	<br>
 	<br>
 	<br>
 
-	//Feld für den Stadtguide
 	<form action="../applications/auswahlAppl.jsp" method="get">
 		<table>
 			<tr>
@@ -25,6 +26,7 @@
 			<tr>
 				<td id="message" colspan="2" align="center">
 					Bitte wähle eine Stadt oder lege eine neue an
+					<%-- <jsp:getProperty name="mb" property="message" /> --%>
 				</td>
 			</tr>
 			<tr>
@@ -51,7 +53,7 @@
 		</table>
 	</form>
 	
-	//Feld für Hinweise
+	<br>
 		<table id="tips">
 			<tr>
 				<td>

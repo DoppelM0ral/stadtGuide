@@ -83,5 +83,15 @@
 				</tr>
 			</table>
 		</form>
+		
+		<br>
+		
+		<table id="tips">
+			<tr>
+				<td>
+					Hinweise
+				</td>
+			</tr>
+		</table>
 </body>
 </html>

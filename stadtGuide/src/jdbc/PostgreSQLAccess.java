@@ -7,13 +7,10 @@ public class PostgreSQLAccess extends JDBCAccess {
 	}
 	public void setDBParms(){
 		dbDrivername = "org.postgresql.Driver";
-		dbURL        = "jdbc:postgresql://143.93.200.243:5432/BWUEBDB";
+		dbURL        = "jdbc:postgresql://143.93.200.243:5435/BWUEBDB";
 		dbUser       = "user1";
 		dbPassword   = "pgusers";
-//		dbURL        = "jdbc:postgresql://localhost:5432/BWUEBDB";
-//		dbUser       = "postgres";
-//		dbPassword   = "pgadmin";
-		dbSchema     = "bwi420_633877"; // hier Matrikelnummer eintragen
+		dbSchema     = "stadtGuide"; // Schema in dem wir arbeiten
 		
 	}
 	public static void main(String[] args) throws NoConnectionException { 
