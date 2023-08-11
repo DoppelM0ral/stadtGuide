@@ -48,8 +48,12 @@
 				<td align="center">
 					<input type="text" name="newActivity" value="">
 				</td>
-				<td align="center">
-					<input type="text" name="newActivPrice" value="">
+				<td>
+					<label><input type="checkbox" name="stayPreis" value="" />0-20<br></label>
+					<label><input type="checkbox" name="stayPreis" value="" />20-50<br></label>
+					<label><input type="checkbox" name="stayPreis" value="" />50-100<br></label>
+					<label><input type="checkbox" name="stayPreis" value="" />100-200<br></label>
+					<label><input type="checkbox" name="stayPreis" value="" />>200<br></label>
 				</td>
 			</tr>
 			<tr>
