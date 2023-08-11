@@ -8,16 +8,18 @@
 </head>
 <body>
 <%
-	String addToStadt[] = request.getParameterValues("addToStadt");
+	String addToStadt = request.getParameter("addToStadt");
 	String addBttn = request.getParameter("addBttn");
 	String returnBttn = request.getParameter("returnBttn");
 	
-	if(addToStadt == null){addToStadt = new String[0];}
+	if (addToStadt == null){addToStadt = "";}
 	if (addBttn == null){addBttn = "";}
 	if (returnBttn == null){returnBttn = "";}
 	
 	if(returnBttn.equals("Zurueck")){
 		response.sendRedirect("../views/stadtView.jsp");
+	}else if(addToStadt.equals("restaurant")){
+		response.sendRedirect("../views/addRestaurantView.jsp");
 	}
 %>
 </body>

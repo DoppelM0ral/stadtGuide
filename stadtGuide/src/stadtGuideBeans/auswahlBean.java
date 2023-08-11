@@ -2,8 +2,10 @@ package stadtGuideBeans;
 
 public class auswahlBean {
 
-	public auswahlBean() {
-		
-	}
 
+	
+	public auswahlBean() {
+
+	}
+	
 }

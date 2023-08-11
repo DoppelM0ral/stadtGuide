@@ -7,6 +7,7 @@
 <title>Application</title>
 </head>
 <body>
+<jsp:useBean id="sb" class="stadtGuideBeans.addBean" scope="session"/>
 
 	This shouldnt be possible :)
 	Gotta work on that
@@ -18,7 +19,6 @@
 		String bundeslandStadt = request.getParameter("bundeslandStadt");
 		String kreisStadt = request.getParameter("kreisStadt");
 		String einwohnerStadt = request.getParameter("einwohnerStadt");
-	//	String Stadt = request.getParameter("confrimBttn");
 		String backBttn = request.getParameter("backBttn");
 		String createBttn = request.getParameter("createBttn");
 		
@@ -30,8 +30,14 @@
 		//Application
 		if (backBttn.equals("Zurück zur Auswahl")){
 			}
-	//	else if (addNewBttn.equals("Neue Stadt anlegen")){
-	//		response.sendRedirect("../views/addStadtView.jsp");	}
+		else if (createBttn.equals("Bestätigen")){
+			sb.setStadtName(nameStadt);
+			sb.setStadtPLZ(plzStadt);
+			sb.setStadtLand(bundeslandStadt);
+			sb.setStadtKreis(kreisStadt);
+			sb.setStadtEinwohner(einwohnerStadt);
+			sb.stadtAnlegen();
+			response.sendRedirect("../views/addStadtView.jsp");	}
 		else{
 			response.sendRedirect("../views/auswahlView.jsp");}
 		%>
