@@ -46,13 +46,14 @@
 			</tr>
 			<tr>
 				<td align="center">
-					<select name="addToCult">
+					<select id="addToCult" name="addToCult" onclick="getSonstigesFeld()">
 						<option value="museum">Museum</option>
 						<option value="historisch">Historischer Platz</option>
 						<option value="tour">Tour</option>
 						<option value="sehenswuerdigkeit">Sehensw&uuml;rdigkeit</option>
+						<option value="showTextFeld">Sonstiges</option>
 					</select><br><br>
-					Sonstiges:<br> <input type="text" name="newCult" value="">
+					<input type="text" id="mySonstigesText" style= "visibility: hidden;">
 				</td>
 				<td align="center">
 					<input type="text" name="newCultPrice" value="">
