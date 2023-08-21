@@ -8,6 +8,11 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
 <form action="../applications/addAktivitaetAppl.jsp" method="get">
 		<table>
 			<tr>
@@ -38,7 +43,7 @@
 			</tr>
 			<tr>
 				<td align="center">
-					Welche Art der Aktivit&auml;t?
+					Welche Aktivit&auml;t:
 				</td>
 				<td align="center">
 					Preis:
@@ -58,10 +63,10 @@
 			</tr>
 			<tr>
 				<td align="center">
-					<input type="submit" name="confirmBttn" value="Bestaetigen">
+					<input type="submit" name="returnBttn" value="Zurück">
 				</td>
 				<td align="center">
-					<input type="submit" name="returnBttn" value="Zurueck">
+					<input type="submit" name="confirmBttn" value="Bestätigen">
 				</td>
 			</tr>
 		</table>

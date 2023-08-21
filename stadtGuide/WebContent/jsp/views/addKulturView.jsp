@@ -8,6 +8,11 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
 <form action="../applications/addKulturAppl.jsp" method="get">
 		<table>
 			<tr>
@@ -38,7 +43,7 @@
 			</tr>
 			<tr>
 				<td align="center">
-					Welche Art der Kulturunterhaltung?
+					Kulturunterhaltung:
 				</td>
 				<td align="center">
 					Preis:
@@ -46,14 +51,13 @@
 			</tr>
 			<tr>
 				<td align="center">
-					<select id="addToCult" name="addToCult" onclick="getSonstigesFeld()">
+					<select id="addToCult" name="addToCult" onselect="getSonstigesFeld()">
 						<option value="museum">Museum</option>
 						<option value="historisch">Historischer Platz</option>
 						<option value="tour">Tour</option>
 						<option value="sehenswuerdigkeit">Sehensw&uuml;rdigkeit</option>
 						<option value="showTextFeld">Sonstiges</option>
-					</select><br><br>
-					<input type="text" id="mySonstigesText" style= "visibility: hidden;">
+					</select>
 				</td>
 				<td align="center">
 					<input type="text" name="newCultPrice" value="">
@@ -61,10 +65,15 @@
 			</tr>
 			<tr>
 				<td align="center">
-					<input type="submit" name="confirmBttn" value="Bestaetigen">
+					<input type="text" id="mySonstigesText" style= "visibility: hidden;">
+				</td>
+			</tr>
+			<tr>
+				<td align="center">
+					<input type="submit" name="returnBttn" value="Zurück">
 				</td>
 				<td align="center">
-					<input type="submit" name="returnBttn" value="Zurueck">
+					<input type="submit" name="confirmBttn" value="Bestätigen">
 				</td>
 			</tr>
 		</table>
