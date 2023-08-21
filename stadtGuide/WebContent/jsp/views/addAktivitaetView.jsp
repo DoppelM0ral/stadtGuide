@@ -43,7 +43,7 @@
 			</tr>
 			<tr>
 				<td align="center">
-					Welche Art der Aktivit&auml;t?
+					Welche Aktivit&auml;t:
 				</td>
 				<td align="center">
 					Preis:
@@ -63,10 +63,18 @@
 			</tr>
 			<tr>
 				<td align="center">
+<<<<<<< HEAD
 					<input type="submit" name="returnBttn" value="Zurueck">
+=======
+					<input type="submit" name="returnBttn" value="Zurück">
+>>>>>>> branch 'master' of https://github.com/DoppelM0ral/stadtGuide.git
 				</td>
 				<td align="center">
+<<<<<<< HEAD
 					<input type="submit" name="confirmBttn" value="Bestaetigen">
+=======
+					<input type="submit" name="confirmBttn" value="Bestätigen">
+>>>>>>> branch 'master' of https://github.com/DoppelM0ral/stadtGuide.git
 				</td>
 			</tr>
 		</table>
