@@ -65,23 +65,15 @@
 			</tr>
 			<tr>
 				<td align="center">
-<<<<<<< HEAD
-					<input type="submit" name="returnBttn" value="Zurueck">
-=======
 					<input type="text" id="mySonstigesText" style= "visibility: hidden;">
 				</td>
 			</tr>
 			<tr>
 				<td align="center">
-					<input type="submit" name="returnBttn" value="Zurück">
->>>>>>> branch 'master' of https://github.com/DoppelM0ral/stadtGuide.git
+					<input type="submit" name="returnBttn" value="Zurueck">
 				</td>
 				<td align="center">
-<<<<<<< HEAD
 					<input type="submit" name="confirmBttn" value="Bestaetigen">
-=======
-					<input type="submit" name="confirmBttn" value="Bestätigen">
->>>>>>> branch 'master' of https://github.com/DoppelM0ral/stadtGuide.git
 				</td>
 			</tr>
 		</table>
