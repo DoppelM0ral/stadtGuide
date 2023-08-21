@@ -5,9 +5,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link type="text/css" rel="stylesheet" href="../../css/addStadtViewCSS.css"/>
-<title>Insert title here</title>
+<title>Stadterweiterung</title>
 </head>
 <body>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+
 <form action="../applications/addToStadtAppl.jsp" method="get">
 			<table>
 				<tr>
@@ -26,16 +32,16 @@
 					<option value="restaurant">Restaurant</option>
 					<option value="unterkunft">Unterkunft</option>
 					<option value="kultur">Kultur</option>
-					<option value="aktivitaet">Aktivitaet</option>
+					<option value="aktivitaet">Aktivität</option>
 				</select>
 				</td>
 				</tr>
 				<tr>
 					<td align="center">
-						<input type="submit" name="addBttn" value="Auswaehlen">
+						<input type="submit" name="backBttn" value="Zur Stadt">
 					</td>
 					<td align="center">
-						<input type="submit" name="returnBttn" value="Zurueck">
+						<input type="submit" name="addBttn" value="Erweitern">
 					</td>
 				</tr>
 			</table>

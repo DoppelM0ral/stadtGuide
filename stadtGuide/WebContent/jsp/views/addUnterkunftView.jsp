@@ -5,9 +5,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link type="text/css" rel="stylesheet" href="../../css/addToStadtViewCSS.css"/>
-<title>Insert title here</title>
+<title>Um Unterkunft erweitern</title>
 </head>
 <body>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
 <form action="../applications/addUnterkunftAppl.jsp" method="get">
 		<table>
 			<tr>
@@ -17,7 +22,7 @@
 			</tr>
 			<tr>
 				<td id="message" colspan="2" align="center">
-					Bitte lege ein neues Restaurant an
+					Bitte lege eine neue Unterkunft an
 				</td>
 			</tr>
 			<tr>
@@ -62,10 +67,10 @@
 			</tr>
 			<tr>
 				<td align="center">
-					<input type="submit" name="confirmBttn" value="Bestaetigen">
+					<input type="submit" name="returnBttn" value="Zurueck">
 				</td>
 				<td align="center">
-					<input type="submit" name="returnBttn" value="Zurueck">
+					<input type="submit" name="confirmBttn" value="Bestaetigen">
 				</td>
 			</tr>
 		</table>

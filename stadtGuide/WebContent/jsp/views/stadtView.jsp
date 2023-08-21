@@ -8,6 +8,12 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+
 <form action="../applications/stadtAppl.jsp" method="get">
 	<table>
 		<tr>

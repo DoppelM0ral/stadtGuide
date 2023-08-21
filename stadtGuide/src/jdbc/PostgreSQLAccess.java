@@ -10,7 +10,7 @@ public class PostgreSQLAccess extends JDBCAccess {
 		dbURL        = "jdbc:postgresql://143.93.200.243:5435/BWUEBDB";
 		dbUser       = "user1";
 		dbPassword   = "pgusers";
-		dbSchema     = "stadtGuide"; // Schema in dem wir arbeiten
+		dbSchema     = "bwi520_633877"; // Schema in dem wir arbeiten
 		
 	}
 	public static void main(String[] args) throws NoConnectionException { 

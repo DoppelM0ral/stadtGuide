@@ -10,16 +10,26 @@
 <%
 	String addToStadt = request.getParameter("addToStadt");
 	String addBttn = request.getParameter("addBttn");
-	String returnBttn = request.getParameter("returnBttn");
+	String backBttn = request.getParameter("backBttn");
 	
 	if (addToStadt == null){addToStadt = "";}
 	if (addBttn == null){addBttn = "";}
-	if (returnBttn == null){returnBttn = "";}
+	if (backBttn == null){backBttn = "";}
 	
-	if(returnBttn.equals("Zurueck")){
+	if(backBttn.equals("Zur Stadt")){
 		response.sendRedirect("../views/stadtView.jsp");
-	}else if(addToStadt.equals("restaurant")){
-		response.sendRedirect("../views/addRestaurantView.jsp");
+	}else if(addBttn.equals("Erweitern")){
+		if(addToStadt.equals("restaurant")){
+			response.sendRedirect("../views/addRestaurantView.jsp");
+		}else if(addToStadt.equals("unterkunft")){
+			response.sendRedirect("../views/addUnterkunftView.jsp");
+		}else if(addToStadt.equals("kultur")){
+			response.sendRedirect("../views/addKulturView.jsp");
+		}else if(addToStadt.equals("aktivitaet")){
+			response.sendRedirect("../views/addAktivitaetView.jsp");
+		}
+	}else { 
+		response.sendRedirect("../views/addToStadtView.jsp");
 	}
 %>
 </body>

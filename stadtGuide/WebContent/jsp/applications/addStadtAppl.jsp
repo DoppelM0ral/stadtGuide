@@ -9,6 +9,7 @@
 <body>
 <jsp:useBean id="sb" class="stadtGuideBeans.addBean" scope="session"/>
 
+
 	This shouldnt be possible :)
 	Gotta work on that
 	

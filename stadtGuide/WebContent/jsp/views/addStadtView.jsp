@@ -75,10 +75,10 @@
 				</tr>
 				<tr>
 					<td align="center">
-						<input type="submit" name="backBttn" value="Zurück zur Auswahl">
+						<input type="submit" name="returnBttn" value="Zurueck">
 					</td>
 					<td align="center">
-						<input type="submit" name="createBttn" value="Bestätigen">
+						<input type="submit" name="confirmBttn" value="Bestaetigen">
 					</td>
 				</tr>
 			</table>
