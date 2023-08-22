@@ -21,7 +21,7 @@
 		String kreisStadt = request.getParameter("kreisStadt");
 		String einwohnerStadt = request.getParameter("einwohnerStadt");
 		String backBttn = request.getParameter("backBttn");
-		String createBttn = request.getParameter("createBttn");
+		String confirmBttn = request.getParameter("confirmBttn");
 		
 		//NullCheck und Aufbereitung der parameter
 		if (backBttn == null){
@@ -29,9 +29,9 @@
 
 		
 		//Application
-		if (backBttn.equals("Zurück zur Auswahl")){
-			}
-		else if (createBttn.equals("Bestätigen")){
+		if (backBttn.equals("Zurueck")){
+			response.sendRedirect("../views/auswahlView.jsp");}
+		else if (confirmBttn.equals("Bestaetigen")){
 			sb.setStadtName(nameStadt);
 			sb.setStadtPLZ(plzStadt);
 			sb.setStadtLand(bundeslandStadt);

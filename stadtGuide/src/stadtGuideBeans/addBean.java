@@ -49,7 +49,7 @@ public class addBean {
 	
 	//Stadt in Datenbank anlegen
 	public void stadtAnlegen() throws SQLException{
-		String sql = "insert into staedte (stadt, plz, age, bundesland, kreis, einwohnerzahl, schauen) values (?,?,?,?,?,?,?)";
+		String sql = "insert into staedte (stadt, plz, bundesland, kreis, einwohner, schauen) values (?,?,?,?,?,?)";
 		System.out.println(sql);
 		PreparedStatement prep = this.dbConn.prepareStatement(sql);
 		prep.setString(1, this.stadtName);

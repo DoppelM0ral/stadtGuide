@@ -75,7 +75,7 @@
 				</tr>
 				<tr>
 					<td align="center">
-						<input type="submit" name="returnBttn" value="Zurueck">
+						<input type="submit" name="backBttn" value="Zurueck">
 					</td>
 					<td align="center">
 						<input type="submit" name="confirmBttn" value="Bestaetigen">
