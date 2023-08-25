@@ -32,10 +32,7 @@
 			<tr>
 				<td align="center">
 					<select name="gewaehlteStadt">
-						<option>Auswählen</option>
-						<option>Ludwigshafen</option>
-						<option>Mannheim</option>
-						<option>Kaiserslautern</option>
+						<jsp:getProperty name="ab" property="optionsSelect"/>
 					</select>
 				</td>
 				<td align="center">
@@ -44,7 +41,7 @@
 			</tr>
 			<tr>
 				<td align="center">
-					<input type="submit" name="confirmBttn" value="Bestätigen">
+					<input type="submit" name="confirmBttn" value="Bestaetigen">
 				</td>
 				<td align="center">
 					<input type="submit" name="addNewBttn" value="Neue Stadt anlegen">

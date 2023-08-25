@@ -29,7 +29,7 @@
 			addNewBttn = "";}
 		
 		//Application
-		if (confirmBttn.equals("Bestätigen")){
+		if (confirmBttn.equals("Bestaetigen")){
 			response.sendRedirect("../views/stadtView.jsp");}
 		else if (addNewBttn.equals("Neue Stadt anlegen")){
 			response.sendRedirect("../views/addStadtView.jsp");}
