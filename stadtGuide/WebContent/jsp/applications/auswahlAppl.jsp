@@ -7,14 +7,14 @@
 <title>Application</title>
 </head>
 <body>
-
+<jsp:useBean id="sb" class="stadtGuideBeans.stadtBean" scope="session"/>
 	This shouldnt be possible :)
 	Gotta work on that
 	
 		<%
 		//Übergabe der Parameter
 		String gewaehlteStadt = request.getParameter("gewaehlteStadt");
-		String confirmBttn = request.getParameter("confrimBttn");
+		String confirmBttn = request.getParameter("confirmBttn");
 		String newCityName = request.getParameter("newCityName");
 		String addNewBttn = request.getParameter("addNewBttn");
 		
@@ -30,6 +30,8 @@
 		
 		//Application
 		if (confirmBttn.equals("Bestaetigen")){
+			sb.setStadt(gewaehlteStadt);
+			sb.data();
 			response.sendRedirect("../views/stadtView.jsp");}
 		else if (addNewBttn.equals("Neue Stadt anlegen")){
 			response.sendRedirect("../views/addStadtView.jsp");}

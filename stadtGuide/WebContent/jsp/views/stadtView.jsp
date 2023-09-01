@@ -1,13 +1,16 @@
+<%@page import="com.sun.xml.internal.txw2.Document"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
 <link type="text/css" rel="stylesheet" href="../../css/stadtViewCSS.css"/>
-<title>Insert title here</title>
+<title>Stadt</title>
 </head>
 <body>
+<jsp:useBean id="sb" class="stadtGuideBeans.stadtBean" scope="session"/>
 	<br>
 	<br>
 	<br>
@@ -23,10 +26,13 @@
 		</tr>
 		
 		<tr>
-			<td><h2>Ihre ausgew&auml;hlte Stadt:</h2></td>
+			<td><h2>Die Stadt <jsp:getProperty name="sb" property="stadt"/> 
+			liegt im Bundesland <jsp:getProperty name="sb" property="stadtLand"/>
+			 im Kreis <jsp:getProperty name="sb" property="stadtKreis"/>
+			  und hat die Postleitzahl <jsp:getProperty name="sb" property="stadtPLZ"/>.</h2></td>
 		</tr>
 		<tr>
-			<td>M&ouml;chten Sie noch was hinzuf&uuml;gen?</td>
+			<td>Was suchen sie ?</td>
 		</tr>
 		<tr>
 			<td>
@@ -35,7 +41,7 @@
 		</tr>
 		<tr>
 			<td>
-				<select name="ernaehrung">
+				<select id="options" name="ernaehrung" onchange="getSelectValue()">
 					<option value="alles">Alles-Esser</option>
 					<option value="pescetarier">Pescetarier</option>
 					<option value="vegetarisch">Vegetarisch</option>
