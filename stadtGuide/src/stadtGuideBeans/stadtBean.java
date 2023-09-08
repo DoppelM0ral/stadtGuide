@@ -17,6 +17,7 @@ public class stadtBean {
 	String stadtKreis;
 	String stadtEinwohner;
 	String stadtSchauen;
+
 	
 	Connection dbConn;
 	
@@ -53,6 +54,112 @@ public class stadtBean {
 	
 	
 	
+	//Suchfilter
+	public String getHiddenRestaurant(){
+		String output =
+						"<table id='restaurant' class='hidden'>\n" +
+							"<tr>\n" +
+								"<td colspan='2' >\n" + 
+									"Variationen" +
+								"</td>\n" + 
+								"<td colspan='2'>\n" +
+									"Preise" +
+								"</td>\n" +
+							"</tr>\n" +
+							"<tr>\n" +
+								"<td>\n" + 
+									"<label><input type='checkbox' name='options' value='pescetarisch' />Pescetarisch<br></label>\n" +
+									"<label><input type='checkbox' name='options' value='vegetarisch' />Vegetarisch<br></label>" +
+									"<label><input type='checkbox' name='options' value='vegan' />Vegan<br></label>\n" +
+								"</td>\n" +
+								"<td>\n" +
+									"<label><input type='checkbox' name='options' value='glutenfrei' />Glutenfrei<br></label>\n" +
+									"<label><input type='checkbox' name='options' value='halal' />Halal<br></label>" +
+								"</td>\n" +
+								"<td width='35%'>\n" +
+									"<label><input type='checkbox' name='preis' value='cheap' />Günstig<br></label>" +
+									"<label><input type='checkbox' name='preis' value='normal' />Normal<br></label>" +
+									"<label><input type='checkbox' name='preis' value='expensive' />Teuer<br></label>" +
+								"</td>\n" +				
+							"</tr>\n" +
+						"</table>";		
+		return output;
+	}
+	
+	public String getHiddenUnterkunft(){
+		String output =
+						"<table id='unterkunft' class='hidden'>\n" +
+							"<tr>\n" +
+								"<td colspan='2' >\n" + 
+									"Art der Unterkunft" +
+								"</td>\n" + 
+								"<td colspan='2'>\n" +
+									"Preise" +
+								"</td>\n" +
+							"</tr>\n" +
+							"<tr>\n" +
+								"<td>\n" + 
+									"<label><input type='checkbox' name='unterkunft' value='hotel' />Hotel<br></label>\n" +
+									"<label><input type='checkbox' name='unterkunft' value='airbnb' />AirBnB<br></label>" +
+									"<label><input type='checkbox' name='unterkunft' value='ferienwohnung' />Ferienwohnung<br></label>\n" +
+								"</td>\n" +
+								"<td width='35%'>\n" +
+									"<label><input type='checkbox' name='preis' value='cheap' />Günstig<br></label>" +
+									"<label><input type='checkbox' name='preis' value='normal' />Normal<br></label>" +
+									"<label><input type='checkbox' name='preis' value='expensive' />Teuer<br></label>" +
+								"</td>\n" +				
+							"</tr>\n" +
+						"</table>";		
+		return output;
+	}
+	public String getHiddenKultur(){
+		String output =
+						"<table id='kultur' class='hidden'>\n" +
+							"<tr>\n" +
+								"<td colspan='2' >\n" + 
+									"Art der Kultur" +
+								"</td>\n" + 
+								"<td colspan='2'>\n" +
+									"Preise" +
+								"</td>\n" +
+							"</tr>\n" +
+							"<tr>\n" +
+								"<td '>\n" + 
+									"<label><input type='checkbox' name='kultur' value='museum' />Museum<br></label>\n" +
+									"<label><input type='checkbox' name='kultur' value='historischerplatz' />Historischer Platz<br></label>" +
+									"<label><input type='checkbox' name='kultur' value='tour' />Tour<br></label>\n" +
+								"</td>\n" +
+								"<td>\n" + 
+									"<label><input type='checkbox' name='kultur' value='sehenswuerdigkeit' />Sehenswürdigkeit<br></label>\n" +
+									"<label><input type='checkbox' name='kultur' value='sonstiges' />Sonstiges<br></label>" +
+							"</td>\n" +	
+								"<td >\n" +
+									"<label><input type='checkbox' name='preis' value='' />Günstig<br></label>" +
+									"<label><input type='checkbox' name='preis' value='' />Normal<br></label>" +
+									"<label><input type='checkbox' name='preis' value='' />Teuer<br></label>" +
+								"</td>\n" +				
+							"</tr>\n" +
+						"</table>";		
+		return output;
+	}
+	public String getHiddenAktivitaet(){
+		String output =
+						"<table id='aktivitaet' class='hidden'>\n" +
+							"<tr>\n" +
+								"<td colspan='2'>\n" +
+									"Preise" +
+								"</td>\n" +
+							"</tr>\n" +
+							"<tr>\n" +
+								"<td width='35%'>\n" +
+									"<label><input type='checkbox' name='preis' value='' />Günstig<br></label>" +
+									"<label><input type='checkbox' name='preis' value='' />Normal<br></label>" +
+									"<label><input type='checkbox' name='preis' value='' />Teuer<br></label>" +
+								"</td>\n" +				
+							"</tr>\n" +
+						"</table>";		
+		return output;
+	}
 	
 	//Getter und Setter
 	public String getStadt() {

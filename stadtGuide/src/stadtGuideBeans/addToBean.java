@@ -1,13 +1,12 @@
 package stadtGuideBeans;
 
-import java.sql.Connection;
+import java.sql.Connection; 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.security.auth.message.callback.PrivateKeyCallback.Request;
 
-import org.apache.jasper.compiler.Node.GetProperty;
 
 import jdbc.NoConnectionException;
 import jdbc.PostgreSQLAccess;

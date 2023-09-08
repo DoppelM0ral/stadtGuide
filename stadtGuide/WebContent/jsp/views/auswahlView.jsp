@@ -8,7 +8,7 @@
 <title>Stadtguide</title>
 </head>
 <body>
-<jsp:useBean id="ab" class="stadtGuideBeans.auswahlBean" scope="session"/>
+<jsp:useBean id="aub" class="stadtGuideBeans.auswahlBean" scope="session"/>
 <jsp:useBean id="mb" class="stadtGuideBeans.messageBean" scope="session"/>
 	<br>
 	<br>
@@ -32,7 +32,7 @@
 			<tr>
 				<td align="center">
 					<select name="gewaehlteStadt">
-						<jsp:getProperty name="ab" property="optionsSelect"/>
+						<jsp:getProperty name="aub" property="optionsSelect"/>
 					</select>
 				</td>
 				<td align="center">

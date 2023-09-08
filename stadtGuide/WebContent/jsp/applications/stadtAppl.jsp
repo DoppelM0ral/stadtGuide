@@ -10,15 +10,15 @@
 <%
 	String ernaehrung = request.getParameter("ernaehrung");
 	String unterkunft = request.getParameter("unterkunft");
-	String confirmBttn = request.getParameter("confirmBttn");
-	String newAddOnBttn = request.getParameter("newAddOnBttn");
+	String returnBttn = request.getParameter("returnBttn");
+	String addToBttn = request.getParameter("addToBttn");
 	
-	if(confirmBttn == null){confirmBttn = "";}
-	if(newAddOnBttn == null){newAddOnBttn = "";}
+	if(returnBttn== null){returnBttn = "";}
+	if(addToBttn == null){addToBttn= "";}
 	
-	if(confirmBttn.equals("Auswaehlen")){
-		response.sendRedirect("../views/stadtView.jsp");
-	}else if(newAddOnBttn.equals("Neu anlegen")){
+	if(returnBttn.equals("Zurueck")){
+		response.sendRedirect("../views/auswahlView.jsp");
+	}else if(addToBttn.equals("Stadt erweitern")){
 		response.sendRedirect("../views/addToStadtView.jsp");
 	}
 %>

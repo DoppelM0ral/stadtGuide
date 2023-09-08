@@ -7,7 +7,7 @@
 <title>Application</title>
 </head>
 <body>
-<jsp:useBean id="sb" class="stadtGuideBeans.addBean" scope="session"/>
+<jsp:useBean id="ab" class="stadtGuideBeans.addBean" scope="session"/>
 
 
 	This shouldnt be possible :)
@@ -32,12 +32,12 @@
 		if (backBttn.equals("Zurueck")){
 			response.sendRedirect("../views/auswahlView.jsp");}
 		else if (confirmBttn.equals("Bestaetigen")){
-			sb.setStadtName(nameStadt);
-			sb.setStadtPLZ(plzStadt);
-			sb.setStadtLand(bundeslandStadt);
-			sb.setStadtKreis(kreisStadt);
-			sb.setStadtEinwohner(einwohnerStadt);
-			sb.stadtAnlegen();
+			ab.setStadtName(nameStadt);
+			ab.setStadtPLZ(plzStadt);
+			ab.setStadtLand(bundeslandStadt);
+			ab.setStadtKreis(kreisStadt);
+			ab.setStadtEinwohner(einwohnerStadt);
+			ab.stadtAnlegen();
 			response.sendRedirect("../views/addStadtView.jsp");	}
 		else{
 			response.sendRedirect("../views/auswahlView.jsp");}
