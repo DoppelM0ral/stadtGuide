@@ -1,13 +1,15 @@
+<%@page import="stadtGuideBeans.messageBean"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta charset="ISO-8859-1">
 <link type="text/css" rel="stylesheet" href="../../css/addToStadtViewCSS.css"/>
-<title>Insert title here</title>
+<title>Aktivit&auml;t anlegen</title>
 </head>
 <body>
+<jsp:useBean id="mb" class="stadtGuideBeans.messageBean" scope="session"/>
 	<br>
 	<br>
 	<br>
@@ -22,7 +24,7 @@
 			</tr>
 			<tr>
 				<td id="message" colspan="2" align="center">
-					Bitte lege ein neue Aktivität an
+					<jsp:getProperty name="mb" property="addAktivitaetText"/>
 				</td>
 			</tr>
 			<tr>
@@ -38,7 +40,8 @@
 					<input type="text" name="newActivName" value="">
 				</td>
 				<td align="center">
-					<input type="text" name="newActivAdress" value="">
+					Stadt:<input type="text" name="newActivCity" value=""><br>
+					Postleitzahl:<input type="text" name="newActivPlz" value="">
 				</td>
 			</tr>
 			<tr>
@@ -46,27 +49,29 @@
 					Welche Aktivit&auml;t:
 				</td>
 				<td align="center">
-					Preis:
+					Preisklasse:
 				</td>
 			</tr>
 			<tr>
 				<td align="center">
-					<input type="text" name="newActivity" value="">
+					<select name="newActivity">
+						<option value="sportlich">Sportlich</option>
+						<option value="unterhaltung">Unterhaltung</option>
+						<option value="bildung">Bildung</option>
+					</select>
 				</td>
 				<td>
-					<label><input type="checkbox" name="stayPreis" value="" />0-20<br></label>
-					<label><input type="checkbox" name="stayPreis" value="" />20-50<br></label>
-					<label><input type="checkbox" name="stayPreis" value="" />50-100<br></label>
-					<label><input type="checkbox" name="stayPreis" value="" />100-200<br></label>
-					<label><input type="checkbox" name="stayPreis" value="" />>200<br></label>
+					<label><input type="radio" name="activePreis" value="" />G&uuml;nstig<br></label>
+					<label><input type="radio" name="activePreis" value="" />Normal<br></label>
+					<label><input type="radio" name="activePreis" value="" />Teuer<br></label>
 				</td>
 			</tr>
 			<tr>
 				<td align="center">
-					<input type="submit" name="returnBttn" value="Zurueck">
+					<input type="submit" name="returnBttn" value="Zurück">
 				</td>
 				<td align="center">
-					<input type="submit" name="confirmBttn" value="Bestaetigen">
+					<input type="submit" name="confirmBttn" value="Bestätigen">
 				</td>
 			</tr>
 		</table>

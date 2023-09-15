@@ -1,13 +1,16 @@
+<%@page import="stadtGuideBeans.messageBean"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta charset="ISO-8859-1">
 <link type="text/css" rel="stylesheet" href="../../css/addToStadtViewCSS.css"/>
-<title>Insert title here</title>
+<script type="text/javascript" src="../js/addKulturJS.js"></script>
+<title>Kultur anlegen</title>
 </head>
 <body>
+<jsp:useBean id="mb" class="stadtGuideBeans.messageBean" scope="session"/>
 	<br>
 	<br>
 	<br>
@@ -22,7 +25,7 @@
 			</tr>
 			<tr>
 				<td id="message" colspan="2" align="center">
-					Bitte lege ein neue kulturelle Unterhaltung an
+					<jsp:getProperty name="mb" property="addKulturText"/>
 				</td>
 			</tr>
 			<tr>
@@ -38,7 +41,8 @@
 					<input type="text" name="newCultName" value="">
 				</td>
 				<td align="center">
-					<input type="text" name="newCultAdress" value="">
+					Stadt: <input type="text" name="newCultStadt" value=""><br>
+					Postleitzahl: <input type="text" name="newCultPlz" value="">
 				</td>
 			</tr>
 			<tr>
@@ -46,34 +50,30 @@
 					Kulturunterhaltung:
 				</td>
 				<td align="center">
-					Preis:
+					Preisklasse:
 				</td>
 			</tr>
 			<tr>
 				<td align="center">
-					<select id="addToCult" name="addToCult" onselect="getSonstigesFeld()">
+					<select id="newCult" name="newCult">
 						<option value="museum">Museum</option>
 						<option value="historisch">Historischer Platz</option>
 						<option value="tour">Tour</option>
 						<option value="sehenswuerdigkeit">Sehensw&uuml;rdigkeit</option>
-						<option value="showTextFeld">Sonstiges</option>
 					</select>
 				</td>
 				<td align="center">
-					<input type="text" name="newCultPrice" value="">
+					<label><input type="radio" name="cultPreis" value="" />G&uuml;nstig<br></label>
+					<label><input type="radio" name="cultPreis" value="" />Normal<br></label>
+					<label><input type="radio" name="cultPreis" value="" />Teuer<br></label>
 				</td>
 			</tr>
 			<tr>
 				<td align="center">
-					<input type="text" id="mySonstigesText" style= "visibility: hidden;">
-				</td>
-			</tr>
-			<tr>
-				<td align="center">
-					<input type="submit" name="returnBttn" value="Zurueck">
+					<input type="submit" name="returnBttn" value="Zurück">
 				</td>
 				<td align="center">
-					<input type="submit" name="confirmBttn" value="Bestaetigen">
+					<input type="submit" name="confirmBttn" value="Bestätigen">
 				</td>
 			</tr>
 		</table>

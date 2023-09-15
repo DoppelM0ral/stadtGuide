@@ -1,13 +1,15 @@
+<%@page import="stadtGuideBeans.messageBean"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta charset="ISO-8859-1">
 <link type="text/css" rel="stylesheet" href="../../css/addToStadtViewCSS.css"/>
-<title>Um Unterkunft erweitern</title>
+<title>Unterkunft anlegen</title>
 </head>
 <body>
+<jsp:useBean id="mb" class="stadtGuideBeans.messageBean" scope="session"/>
 	<br>
 	<br>
 	<br>
@@ -22,7 +24,7 @@
 			</tr>
 			<tr>
 				<td id="message" colspan="2" align="center">
-					Bitte lege eine neue Unterkunft an
+					<jsp:getProperty name="mb" property="addUnterkunftText"/>
 				</td>
 			</tr>
 			<tr>
@@ -38,7 +40,8 @@
 					<input type="text" name="newStayName" value="">
 				</td>
 				<td align="center">
-					<input type="text" name="newStayAdress" value="">
+					Stadt: <input type="text" name="newStayStadt" value=""><br>
+					Postleitzahl: <input type="text" name="newStayPlz" value="">
 				</td>
 			</tr>
 			<tr>
@@ -51,26 +54,24 @@
 			</tr>
 			<tr>
 				<td align="center">
-					<select name="addToStay">
+					<select name="newStay">
 						<option value="hotel">Hotel</option>
 						<option value="airbnb">AirBnB</option>
 						<option value="ferienwohnung">Ferienwohnung</option>
 					</select>
 				</td>
 				<td id="cc">
-					<label><input type="checkbox" name="stayPreis" value="" />0-50<br></label>
-					<label><input type="checkbox" name="stayPreis" value="" />50-100<br></label>
-					<label><input type="checkbox" name="stayPreis" value="" />100-200<br></label>
-					<label><input type="checkbox" name="stayPreis" value="" />200-300<br></label>
-					<label><input type="checkbox" name="stayPreis" value="" />>300<br></label>
+					<label><input type="radio" name="stayPreis" value="" />G&uuml;nstig<br></label>
+					<label><input type="radio" name="stayPreis" value="" />Normal<br></label>
+					<label><input type="radio" name="stayPreis" value="" />Teuer<br></label>
 				</td>
 			</tr>
 			<tr>
 				<td align="center">
-					<input type="submit" name="returnBttn" value="Zurueck">
+					<input type="submit" name="returnBttn" value="Zurück">
 				</td>
 				<td align="center">
-					<input type="submit" name="confirmBttn" value="Bestaetigen">
+					<input type="submit" name="confirmBttn" value="Bestätigen">
 				</td>
 			</tr>
 		</table>

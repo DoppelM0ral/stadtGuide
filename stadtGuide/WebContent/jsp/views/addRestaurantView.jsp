@@ -1,13 +1,15 @@
+<%@page import="stadtGuideBeans.messageBean"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta charset="ISO-8859-1">
 <link type="text/css" rel="stylesheet" href="../../css/addToStadtViewCSS.css"/>
-<title>Insert title here</title>
+<title>Restaurant anlegen</title>
 </head>
 <body>
+<jsp:useBean id="mb" class="stadtGuideBeans.messageBean" scope="session"/>
 	<br>
 	<br>
 	<br>
@@ -22,7 +24,7 @@
 			</tr>
 			<tr>
 				<td id="message" colspan="2" align="center">
-					Bitte lege ein neues Restaurant an
+					<jsp:getProperty name="mb" property="addRestaurantText"/>
 				</td>
 			</tr>
 			<tr>
@@ -38,27 +40,30 @@
 					<input type="text" name="newRestName" value="">
 				</td>
 				<td align="center">
-					<input type="text" name="newRestAdress" value="">
+					Stadt: <input type="text" name="newRestCity" value=""><br>
+					Postleitzahl: <input type="text" name="newRestPlz" value="">
 				</td>
 			</tr>
 			<tr>
-				<td align="center">
-					Welche Art der Küche?
-				</td>
 				<td align="center">
 					Was trifft auf das Restaurant zu?
 				</td>
+				<td align="center">
+					Preisklasse?
+				</td>
 			</tr>
 			<tr>
-				<td align="center">
-					<input type="text" name="newRestFood" value="">
-				</td>
 				<td id="cc">
 					<label><input type="checkbox" name="nourish" value="" />Vegan<br></label>
 					<label><input type="checkbox" name="nourish" value="" />Vegetarisch<br></label>
 					<label><input type="checkbox" name="nourish" value="" />Pescetarisch<br></label>
 					<label><input type="checkbox" name="nourish" value="" />Glutenfrei<br></label>
 					<label><input type="checkbox" name="nourish" value="" />Halal<br></label>
+				</td>
+				<td align="center">
+					<label><input type="radio" name="restPreis" value="" />G&uuml;nstig<br></label>
+					<label><input type="radio" name="restPreis" value="" />Normal<br></label>
+					<label><input type="radio" name="restPreis" value="" />Teuer<br></label>
 				</td>
 			</tr>
 			<tr>
