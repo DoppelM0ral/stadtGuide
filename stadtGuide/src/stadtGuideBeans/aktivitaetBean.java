@@ -9,6 +9,6 @@ import java.sql.SQLException;
 import jdbc.NoConnectionException;
 import jdbc.PostgreSQLAccess;
 
-public class aktivitaeBean {
+public class aktivitaetBean {
 	String test;
 }
