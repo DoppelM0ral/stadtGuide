@@ -11,6 +11,6 @@ import jdbc.PostgreSQLAccess;
 
 public class restaurantBean {
 
-	
+	String test;
 	
 }

@@ -10,5 +10,5 @@ import jdbc.NoConnectionException;
 import jdbc.PostgreSQLAccess;
 
 public class aktivitaeBean {
-
+	String test;
 }

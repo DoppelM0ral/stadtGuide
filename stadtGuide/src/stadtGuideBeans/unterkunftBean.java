@@ -10,7 +10,8 @@ import jdbc.NoConnectionException;
 import jdbc.PostgreSQLAccess;
 
 public class unterkunftBean {
-
+	
+	String test;
 
 	
 }
