@@ -57,8 +57,15 @@
 				</td>
 			</tr>
 			<tr>
-				<td  id="main" colspan="2">
-						Hier kommt die liste der Möglichkeiten anhand der suchoptionen hin
+				<td  id="main" colspan="3">
+					<table id="result">
+						<tr>
+							<td width="100%">
+								<p>Für ihre Suche sind die folgenden Ergebnisse in unserer Datenbank vorhanden: </p>
+								<p></p>
+							</td>
+						</tr>
+					</table>
 			 	</td>
 			</tr>
 

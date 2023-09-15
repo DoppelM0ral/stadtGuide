@@ -17,6 +17,15 @@ table#tips{
   	
 }
 
+table#result{
+	border: solid;
+	border-color: #12a806;
+	border-radius: 15px;
+	margin-left: auto;
+  	margin-right: auto;
+  	
+}
+
 td.main{
 	padding-bottom: 16px;
 
