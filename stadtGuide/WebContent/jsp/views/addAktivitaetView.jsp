@@ -40,8 +40,7 @@
 					<input type="text" name="newActivName" value="">
 				</td>
 				<td align="center">
-					Stadt:<input type="text" name="newActivCity" value=""><br>
-					Postleitzahl:<input type="text" name="newActivPlz" value="">
+					<input type="text" name="newActivAdresse" value="">
 				</td>
 			</tr>
 			<tr>

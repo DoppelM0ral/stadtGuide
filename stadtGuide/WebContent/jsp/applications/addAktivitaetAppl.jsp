@@ -11,8 +11,7 @@
 <jsp:useBean id="activb" class="stadtGuideBeans.aktivitaetBean" scope="session"/>
 <%
 	String newActivName = request.getParameter("newActivName");
-	String newActivCity = request.getParameter("newActivCity");
-	String newActivPlz = request.getParameter("newActivPlz");
+	String newActivAdresse = request.getParameter("newActivAdresse");
 	String newActivity = request.getParameter("newActivity");
 	String activePreis = request.getParameter("activePreis");
 	String confirmBttn = request.getParameter("confirmBttn");
@@ -25,8 +24,7 @@
 		response.sendRedirect("../views/addToStadtView.jsp");}
 	else if(confirmBttn.equals("Bestaetigen")){
 		activb.setNewActivName(newActivName);
-		activb.setNewActivCity(newActivCity);
-		activb.setNewActivPlz(newActivPlz);
+		activb.setNewActivAdresse(newActivAdresse);
 		activb.setNewActivity(newActivity);
 		activb.setActivePreis(activePreis);
 		activb.aktivitaetAnlegen();

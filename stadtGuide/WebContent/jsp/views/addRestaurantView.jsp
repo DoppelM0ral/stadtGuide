@@ -40,8 +40,7 @@
 					<input type="text" name="newRestName" value="">
 				</td>
 				<td align="center">
-					Stadt: <input type="text" name="newRestCity" value=""><br>
-					Postleitzahl: <input type="text" name="newRestPlz" value="">
+					<input type="text" name="newRestAdresse" value="">
 				</td>
 			</tr>
 			<tr>

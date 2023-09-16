@@ -11,8 +11,7 @@
 <jsp:useBean id="stayb" class="stadtGuideBeans.unterkunftBean" scope="session"/>
 <%
 	String newStayName = request.getParameter("newStayName");
-	String newStayCity = request.getParameter("newStayCity");
-	String newStayPlz = request.getParameter("newStayPlz");
+	String newStayAdresse = request.getParameter("newStayAdresse");
 	String newStay = request.getParameter("newStay");
 	String stayPreis = request.getParameter("stayPreis");
 	String confirmBttn = request.getParameter("confirmBttn");
@@ -23,8 +22,7 @@
 	
 	if(confirmBttn.equals("Bestaetigen")){
 		stayb.setNewStayName(newStayName);
-		stayb.setNewStayCity(newStayCity);
-		stayb.setNewStayPlz(newStayPlz);
+		stayb.setNewStayAdresse(newStayAdresse);
 		stayb.setNewStay(newStay);
 		stayb.setStayPreis(stayPreis);
 		stayb.unterkunftAnlegen();

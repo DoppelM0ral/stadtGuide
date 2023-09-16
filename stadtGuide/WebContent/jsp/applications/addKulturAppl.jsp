@@ -11,8 +11,7 @@
 <jsp:useBean id="cultb" class="stadtGuideBeans.kulturBean" scope="session"/>
 <%
 	String newCultName = request.getParameter("newCultName");
-	String newCultCity = request.getParameter("newCultCity");
-	String newCultPlz = request.getParameter("newCultPlz");
+	String newCultAdresse = request.getParameter("newCultAdresse");
 	String newCult = request.getParameter("newCult");
 	String cultPrice = request.getParameter("cultPrice");
 	String confirmBttn = request.getParameter("confirmBttn");
@@ -23,8 +22,7 @@
 	
 	if (confirmBttn.equals("Bestaetigen")){
 		cultb.setNewCultName(newCultName);
-		cultb.setNewCultCity(newCultCity);
-		cultb.setNewCultPlz(newCultPlz);
+		cultb.setNewCultAdresse(newCultAdresse);
 		cultb.setNewCult(newCult);
 		cultb.setCultPrice(cultPrice);
 		cultb.kulturAnlegen();

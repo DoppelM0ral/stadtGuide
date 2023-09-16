@@ -10,8 +10,7 @@ import jdbc.PostgreSQLAccess;
 
 public class kulturBean {
 	String newCultName;
-	String newCultCity;
-	String newCultPlz;
+	String newCultAdresse;
 	String newCult;
 	String cultPrice;
 	
@@ -24,8 +23,7 @@ public class kulturBean {
 	
 	public void initialize() {
 		this.newCultName = "";
-		this.newCultCity = "";
-		this.newCultPlz = "";
+		this.newCultAdresse = "";
 		this.newCult = "";
 		this.cultPrice = "";
 	}
@@ -33,25 +31,24 @@ public class kulturBean {
 	public boolean stadtCheck() throws SQLException{
 		//true - Stadt existiert - liegt in der Datenbank vor
 		//false - Stadt existiert - liegt nicht in der Datenbank vor
-		String sql = "select stadt from staedte where plz = ?";
+		String sql = "select stadt from addons where name = ?";
 		System.out.println(sql);
 		PreparedStatement prep = this.dbConn.prepareStatement(sql);
-		prep.setString(1, this.newCultPlz);
+		prep.setString(1, this.newCultName);
 		ResultSet dbRes = prep.executeQuery();
 		boolean check = dbRes.next();
 		return check;
 	}
 	
 	public void kulturAnlegen() throws SQLException {
-		String sql = "insert into staedte (stadt, plz, bundesland, kreis, einwohner, schauen) values (?,?,?,?,?,?)";
+		String sql = "insert into addons (name, adresse, art, kategorie, preisklasse) values (?,?,?,?,?)";
 		System.out.println(sql);
 		PreparedStatement prep = this.dbConn.prepareStatement(sql);
 		prep.setString(1, this.newCultName);
-		prep.setString(2, this.newCultCity);
-		prep.setString(3, this.newCultPlz);
-		prep.setString(4, this.newCult);
-		prep.setString(5, "Kultur");
-		prep.setString(6, this.cultPrice);
+		prep.setString(2, this.newCultAdresse);
+		prep.setString(3, this.newCult);
+		prep.setString(4, "Kultur");
+		prep.setString(5, this.cultPrice);
 		prep.executeUpdate();
 		System.out.println();
 	}
@@ -64,21 +61,14 @@ public class kulturBean {
 		this.newCultName = newCultName;
 	}
 
-	public String getNewCultCity() {
-		return newCultCity;
+	public String getNewCultAdresse() {
+		return newCultAdresse;
 	}
 
-	public void setNewCultCity(String newCultCity) {
-		this.newCultCity = newCultCity;
+	public void setNewCultAdresse(String newCultAdresse) {
+		this.newCultAdresse = newCultAdresse;
 	}
 
-	public String getNewCultPlz() {
-		return newCultPlz;
-	}
-
-	public void setNewCultPlz(String newCultPlz) {
-		this.newCultPlz = newCultPlz;
-	}
 
 	public String getNewCult() {
 		return newCult;

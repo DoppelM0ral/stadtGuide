@@ -41,8 +41,7 @@
 					<input type="text" name="newCultName" value="">
 				</td>
 				<td align="center">
-					Stadt: <input type="text" name="newCultStadt" value=""><br>
-					Postleitzahl: <input type="text" name="newCultPlz" value="">
+					<input type="text" name="newCultAdresse" value="">
 				</td>
 			</tr>
 			<tr>

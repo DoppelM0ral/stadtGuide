@@ -11,8 +11,7 @@
 <jsp:useBean id="restB" class="stadtGuideBeans.restaurantBean" scope="session"/>
 <%
 	String newRestName = request.getParameter("newRestName");
-	String newRestCity = request.getParameter("newRestCity");
-	String newRestPlz = request.getParameter("newRestPlz");
+	String newRestAdresse = request.getParameter("newRestAdresse");
 	String newRestFood = request.getParameter("newRestName");
 	String nourish = request.getParameter("nourish");
 	String restPreis = request.getParameter("restPreis");
@@ -24,9 +23,7 @@
 	
 	if(confirmBttn.equals("Bestaetigen")){
 		restB.setNewRestName(newRestName);
-		restB.setNewRestCity(newRestCity);
-		restB.setNewRestPlz(newRestPlz);
-		restB.setNewRestFood(newRestFood);
+		restB.setNewRestAdresse(newRestAdresse);
 		restB.setNourish(nourish);
 		restB.setRestPreis(restPreis);
 		restB.restaurantAnlegen();

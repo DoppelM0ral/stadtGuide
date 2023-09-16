@@ -40,8 +40,7 @@
 					<input type="text" name="newStayName" value="">
 				</td>
 				<td align="center">
-					Stadt: <input type="text" name="newStayStadt" value=""><br>
-					Postleitzahl: <input type="text" name="newStayPlz" value="">
+					<input type="text" name="newStayAdresse" value="">
 				</td>
 			</tr>
 			<tr>

@@ -10,8 +10,7 @@ import jdbc.PostgreSQLAccess;
 
 public class unterkunftBean {
 	String newStayName;
-	String newStayCity;
-	String newStayPlz;
+	String newStayAdresse;
 	String newStay;
 	String stayPreis;
 	
@@ -24,8 +23,7 @@ public class unterkunftBean {
 	
 	public void initialize() {
 		this.newStayName = "";
-		this.newStayCity = "";
-		this.newStayPlz = "";
+		this.newStayAdresse = "";
 		this.newStay = "";
 		this.stayPreis = "";
 	}
@@ -33,25 +31,24 @@ public class unterkunftBean {
 	public boolean unterkunftCheck() throws SQLException{
 		//true - Stadt existiert - liegt in der Datenbank vor
 		//false - Stadt existiert - liegt nicht in der Datenbank vor
-		String sql = "select name from addons where plz = ?";
+		String sql = "select name from addons where name = ?";
 		System.out.println(sql);
 		PreparedStatement prep = this.dbConn.prepareStatement(sql);
-		prep.setString(1, this.newStayPlz);
+		prep.setString(1, this.newStayName);
 		ResultSet dbRes = prep.executeQuery();
 		boolean check = dbRes.next();
 		return check;
 	}
 	
 	public void unterkunftAnlegen() throws SQLException {
-		String sql = "insert into addons (name, stadt, plz, art, kategorie, preisklasse) values (?,?,?,?,?,?)";
+		String sql = "insert into addons (name, adresse art, kategorie, preisklasse) values (?,?,?,?,?)";
 		System.out.println(sql);
 		PreparedStatement prep = this.dbConn.prepareStatement(sql);
 		prep.setString(1, this.newStayName);
-		prep.setString(2, this.newStayCity);
-		prep.setString(3, this.newStayPlz);
-		prep.setString(4, this.newStay);
-		prep.setString(5, "Unterkunft");
-		prep.setString(6, this.stayPreis);
+		prep.setString(2, this.newStayAdresse);
+		prep.setString(3, this.newStay);
+		prep.setString(4, "Unterkunft");
+		prep.setString(5, this.stayPreis);
 		prep.executeUpdate();
 		System.out.println();
 	}
@@ -64,20 +61,12 @@ public class unterkunftBean {
 		this.newStayName = newStayName;
 	}
 
-	public String getNewStayCity() {
-		return newStayCity;
+	public String getNewStayAdresse() {
+		return newStayAdresse;
 	}
 
-	public void setNewStayCity(String newStayCity) {
-		this.newStayCity = newStayCity;
-	}
-
-	public String getNewStayPlz() {
-		return newStayPlz;
-	}
-
-	public void setNewStayPlz(String newStayPlz) {
-		this.newStayPlz = newStayPlz;
+	public void setNewStayAdresse(String newStayAdresse) {
+		this.newStayAdresse = newStayAdresse;
 	}
 
 	public String getNewStay() {

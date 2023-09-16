@@ -10,8 +10,7 @@ import jdbc.PostgreSQLAccess;
 
 public class aktivitaetBean {
 	String newActivName;
-	String newActivCity;
-	String newActivPlz;
+	String newActivAdresse;
 	String newActivity;
 	String activePreis;
 	
@@ -24,8 +23,7 @@ public class aktivitaetBean {
 	
 	public void initialize() {
 		this.newActivName = "";
-		this.newActivCity = "";
-		this.newActivPlz = "";
+		this.newActivAdresse = "";
 		this.newActivity = "";
 		this.activePreis = "";
 	}
@@ -33,25 +31,24 @@ public class aktivitaetBean {
 	public boolean aktivitaetCheck() throws SQLException{
 		//true - Stadt existiert - liegt in der Datenbank vor
 		//false - Stadt existiert - liegt nicht in der Datenbank vor
-		String sql = "select name from addons where plz = ?";
+		String sql = "select name from addons where name = ?";
 		System.out.println(sql);
 		PreparedStatement prep = this.dbConn.prepareStatement(sql);
-		prep.setString(1, this.newActivPlz);
+		prep.setString(1, this.newActivName);
 		ResultSet dbRes = prep.executeQuery();
 		boolean check = dbRes.next();
 		return check;
 	}
 	
 	public void aktivitaetAnlegen() throws SQLException {
-		String sql = "insert into addons (name, stadt, plz, art, kategorie, preisklasse) values (?,?,?,?,?,?,?)";
+		String sql = "insert into addons (name, adresse, art, kategorie, preisklasse) values (?,?,?,?,?)";
 		System.out.println(sql);
 		PreparedStatement prep = this.dbConn.prepareStatement(sql);
 		prep.setString(1, this.newActivName);
-		prep.setString(2, this.newActivCity);
-		prep.setString(3, this.newActivPlz);
-		prep.setString(4, this.newActivity);
-		prep.setString(5, "Aktivitaet");
-		prep.setString(6, this.activePreis);
+		prep.setString(2, this.newActivAdresse);
+		prep.setString(3, this.newActivity);
+		prep.setString(4, "Aktivitaet");
+		prep.setString(5, this.activePreis);
 		prep.executeUpdate();
 		System.out.println();
 	}
@@ -72,20 +69,12 @@ public class aktivitaetBean {
 		this.newActivName = newActivName;
 	}
 
-	public String getNewActivCity() {
-		return newActivCity;
+	public String getNewActivAdresse() {
+		return newActivAdresse;
 	}
 
-	public void setNewActivCity(String newActivCity) {
-		this.newActivCity = newActivCity;
-	}
-
-	public String getNewActivPlz() {
-		return newActivPlz;
-	}
-
-	public void setNewActivPlz(String newActivPlz) {
-		this.newActivPlz = newActivPlz;
+	public void setNewActivAdresse(String newActivAdresse) {
+		this.newActivAdresse = newActivAdresse;
 	}
 
 	public String getNewActivity() {
