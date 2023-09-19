@@ -13,7 +13,9 @@
 	String newRestName = request.getParameter("newRestName");
 	String newRestAdresse = request.getParameter("newRestAdresse");
 	String newRestFood = request.getParameter("newRestName");
-	String nourish = request.getParameter("nourish");
+	boolean vegan = request.getParameter("vegan") != null;
+	boolean vegetarisch = request.getParameter("vegetarisch") != null;
+	boolean halal = request.getParameter("halal") != null;
 	String restPreis = request.getParameter("restPreis");
 	String confirmBttn = request.getParameter("confirmBttn");
 	String returnBttn = request.getParameter("returnBttn");
@@ -24,7 +26,9 @@
 	if(confirmBttn.equals("Bestaetigen")){
 		restB.setNewRestName(newRestName);
 		restB.setNewRestAdresse(newRestAdresse);
-		restB.setNourish(nourish);
+		restB.setVegan(vegan);
+		restB.setVegetarisch(vegetarisch);
+		restB.setHalal(halal);
 		restB.setRestPreis(restPreis);
 		restB.restaurantAnlegen();
 		response.sendRedirect("../views/stadtView.jsp");

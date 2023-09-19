@@ -11,8 +11,10 @@ import jdbc.PostgreSQLAccess;
 public class restaurantBean {
 	String newRestName;
 	String newRestAdresse;
-	String nourish;
 	String restPreis;
+	boolean vegan;
+	boolean vegetarisch;
+	boolean halal;
 	
 	Connection dbConn;
 
@@ -24,37 +26,62 @@ public class restaurantBean {
 	public void initialize() {
 		this.newRestName = "";
 		this.newRestAdresse = "";
-		this.nourish = "";
 		this.restPreis = "";
 	}
 	
-	public boolean restaurantCheck() throws SQLException{
-		//true - Stadt existiert - liegt in der Datenbank vor
-		//false - Stadt existiert - liegt nicht in der Datenbank vor
-		String sql = "select name from addons where name = ?";
-		System.out.println(sql);
-		PreparedStatement prep = this.dbConn.prepareStatement(sql);
-		prep.setString(1, this.newRestName);
-		ResultSet dbRes = prep.executeQuery();
-		boolean check = dbRes.next();
-		return check;
-	}
+//	public boolean restaurantCheck() throws SQLException{
+//		//true - Stadt existiert - liegt in der Datenbank vor
+//		//false - Stadt existiert - liegt nicht in der Datenbank vor
+//		String sql = "select name from restaurants where plz = ?";
+//		System.out.println(sql);
+//		PreparedStatement prep = this.dbConn.prepareStatement(sql);
+//		prep.setString(1, this.newRestName);
+//		ResultSet dbRes = prep.executeQuery();
+//		boolean check = dbRes.next();
+//		return check;
+//	}
 	
 	public void restaurantAnlegen() throws SQLException {
-		String sql = "insert into addons (name, adresse, art, kategorie, preisklasse) values (?,?,?,?,?)";
+		String sql = "insert into restaurants (name, adresse, vegan, vegetarisch, halal, kategorie, preisklasse) values (?,?,?,?,?,?,?)";
 		System.out.println(sql);
 		PreparedStatement prep = this.dbConn.prepareStatement(sql);
 		prep.setString(1, this.newRestName);
 		prep.setString(2, this.newRestAdresse);
-		prep.setString(3, this.nourish);
-		prep.setString(4, "Restaurant");
-		prep.setString(5, this.restPreis);
+		prep.setBoolean(3, this.vegan);
+		prep.setBoolean(4, this.vegetarisch);
+		prep.setBoolean(5, this.halal);
+		prep.setString(6, "Restaurant");
+		prep.setString(7, this.restPreis);
 		prep.executeUpdate();
 		System.out.println();
 	}
 	
 	public Connection getDbConn() {
 		return dbConn;
+	}
+	
+	public boolean isVegan() {
+		return vegan;
+	}
+
+	public void setVegan(boolean vegan) {
+		this.vegan = vegan;
+	}
+
+	public boolean isVegetarisch() {
+		return vegetarisch;
+	}
+
+	public void setVegetarisch(boolean vegetarisch) {
+		this.vegetarisch = vegetarisch;
+	}
+
+	public boolean isHalal() {
+		return halal;
+	}
+
+	public void setHalal(boolean halal) {
+		this.halal = halal;
 	}
 
 	public void setDbConn(Connection dbConn) {
@@ -77,13 +104,6 @@ public class restaurantBean {
 		this.newRestAdresse = newRestAdresse;
 	}
 
-	public String getNourish() {
-		return nourish;
-	}
-
-	public void setNourish(String nourish) {
-		this.nourish = nourish;
-	}
 	
 	public String getRestPreis() {
 		return restPreis;

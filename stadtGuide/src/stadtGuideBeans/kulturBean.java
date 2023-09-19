@@ -28,20 +28,20 @@ public class kulturBean {
 		this.cultPrice = "";
 	}
 	
-	public boolean stadtCheck() throws SQLException{
-		//true - Stadt existiert - liegt in der Datenbank vor
-		//false - Stadt existiert - liegt nicht in der Datenbank vor
-		String sql = "select stadt from addons where name = ?";
-		System.out.println(sql);
-		PreparedStatement prep = this.dbConn.prepareStatement(sql);
-		prep.setString(1, this.newCultName);
-		ResultSet dbRes = prep.executeQuery();
-		boolean check = dbRes.next();
-		return check;
-	}
+//	public boolean stadtCheck() throws SQLException{
+//		//true - Stadt existiert - liegt in der Datenbank vor
+//		//false - Stadt existiert - liegt nicht in der Datenbank vor
+//		String sql = "select stadt from addons where name = ?";
+//		System.out.println(sql);
+//		PreparedStatement prep = this.dbConn.prepareStatement(sql);
+//		prep.setString(1, this.newCultName);
+//		ResultSet dbRes = prep.executeQuery();
+//		boolean check = dbRes.next();
+//		return check;
+//	}
 	
 	public void kulturAnlegen() throws SQLException {
-		String sql = "insert into addons (name, adresse, art, kategorie, preisklasse) values (?,?,?,?,?)";
+		String sql = "insert into kultur (name, adresse, kulturaktivitaet, kategorie, preisklasse) values (?,?,?,?,?)";
 		System.out.println(sql);
 		PreparedStatement prep = this.dbConn.prepareStatement(sql);
 		prep.setString(1, this.newCultName);

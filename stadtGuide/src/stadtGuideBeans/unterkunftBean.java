@@ -28,20 +28,20 @@ public class unterkunftBean {
 		this.stayPreis = "";
 	}
 	
-	public boolean unterkunftCheck() throws SQLException{
-		//true - Stadt existiert - liegt in der Datenbank vor
-		//false - Stadt existiert - liegt nicht in der Datenbank vor
-		String sql = "select name from addons where name = ?";
-		System.out.println(sql);
-		PreparedStatement prep = this.dbConn.prepareStatement(sql);
-		prep.setString(1, this.newStayName);
-		ResultSet dbRes = prep.executeQuery();
-		boolean check = dbRes.next();
-		return check;
-	}
+//	public boolean unterkunftCheck() throws SQLException{
+//		//true - Stadt existiert - liegt in der Datenbank vor
+//		//false - Stadt existiert - liegt nicht in der Datenbank vor
+//		String sql = "select name from addons where name = ?";
+//		System.out.println(sql);
+//		PreparedStatement prep = this.dbConn.prepareStatement(sql);
+//		prep.setString(1, this.newStayName);
+//		ResultSet dbRes = prep.executeQuery();
+//		boolean check = dbRes.next();
+//		return check;
+//	}
 	
 	public void unterkunftAnlegen() throws SQLException {
-		String sql = "insert into addons (name, adresse art, kategorie, preisklasse) values (?,?,?,?,?)";
+		String sql = "insert into unterkunft (name, adresse unterkunftsart, kategorie, preisklasse) values (?,?,?,?,?)";
 		System.out.println(sql);
 		PreparedStatement prep = this.dbConn.prepareStatement(sql);
 		prep.setString(1, this.newStayName);
