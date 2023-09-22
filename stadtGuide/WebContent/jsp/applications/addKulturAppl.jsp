@@ -13,7 +13,7 @@
 	String newCultName = request.getParameter("newCultName");
 	String newCultAdresse = request.getParameter("newCultAdresse");
 	String newCult = request.getParameter("newCult");
-	String cultPrice = request.getParameter("cultPrice");
+	String cultPreis = request.getParameter("cultPreis");
 	String confirmBttn = request.getParameter("confirmBttn");
 	String returnBttn = request.getParameter("returnBttn");
 	
@@ -21,16 +21,17 @@
 	if (returnBttn == null){returnBttn = "";}
 	
 	if (confirmBttn.equals("Bestaetigen")){
+		cultb.zaehlerID();
 		cultb.setNewCultName(newCultName);
 		cultb.setNewCultAdresse(newCultAdresse);
 		cultb.setNewCult(newCult);
-		cultb.setCultPrice(cultPrice);
+		cultb.setCultPreis(cultPreis);
 		cultb.kulturAnlegen();
 		response.sendRedirect("../views/stadtView.jsp");}
 	else if(returnBttn.equals("Zurueck")){
 		response.sendRedirect("../views/addToStadtView.jsp");}
 	else{
-		response.sendRedirect("../views/addToStadtView.jsp");
+		response.sendRedirect("../views/addKulturView.jsp");
 	}
 		
 %>

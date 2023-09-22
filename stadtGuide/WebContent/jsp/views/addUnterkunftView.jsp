@@ -54,23 +54,23 @@
 			<tr>
 				<td align="center">
 					<select name="newStay">
-						<option value="hotel">Hotel</option>
-						<option value="airbnb">AirBnB</option>
-						<option value="ferienwohnung">Ferienwohnung</option>
+						<option value="Hotel">Hotel</option>
+						<option value="Airbnb">AirBnB</option>
+						<option value="Ferienwohnung">Ferienwohnung</option>
 					</select>
 				</td>
 				<td id="cc">
-					<label><input type="radio" name="stayPreis" value="" />G&uuml;nstig<br></label>
-					<label><input type="radio" name="stayPreis" value="" />Normal<br></label>
-					<label><input type="radio" name="stayPreis" value="" />Teuer<br></label>
+					<label><input type="radio" name="stayPreis" value="Guenstig" />G&uuml;nstig<br></label>
+					<label><input type="radio" name="stayPreis" value="Normal" />Normal<br></label>
+					<label><input type="radio" name="stayPreis" value="Teuer" />Teuer<br></label>
 				</td>
 			</tr>
 			<tr>
 				<td align="center">
-					<input type="submit" name="returnBttn" value="Zurück">
+					<input type="submit" name="returnBttn" value="Zurueck">
 				</td>
 				<td align="center">
-					<input type="submit" name="confirmBttn" value="Bestätigen">
+					<input type="submit" name="confirmBttn" value="Bestaetigen">
 				</td>
 			</tr>
 		</table>

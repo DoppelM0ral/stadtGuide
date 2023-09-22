@@ -55,24 +55,24 @@
 			<tr>
 				<td align="center">
 					<select id="newCult" name="newCult">
-						<option value="museum">Museum</option>
-						<option value="historisch">Historischer Platz</option>
-						<option value="tour">Tour</option>
-						<option value="sehenswuerdigkeit">Sehensw&uuml;rdigkeit</option>
+						<option value="Museum">Museum</option>
+						<option value="Historisch">Historischer Platz</option>
+						<option value="Tour">Tour</option>
+						<option value="Sehenswuerdigkeit">Sehensw&uuml;rdigkeit</option>
 					</select>
 				</td>
 				<td align="center">
-					<label><input type="radio" name="cultPreis" value="" />G&uuml;nstig<br></label>
-					<label><input type="radio" name="cultPreis" value="" />Normal<br></label>
-					<label><input type="radio" name="cultPreis" value="" />Teuer<br></label>
+					<label><input type="radio" name="cultPreis" value="Guenstig" />G&uuml;nstig<br></label>
+					<label><input type="radio" name="cultPreis" value="Normal" />Normal<br></label>
+					<label><input type="radio" name="cultPreis" value="Teuer" />Teuer<br></label>
 				</td>
 			</tr>
 			<tr>
 				<td align="center">
-					<input type="submit" name="returnBttn" value="Zurück">
+					<input type="submit" name="returnBttn" value="Zurueck">
 				</td>
 				<td align="center">
-					<input type="submit" name="confirmBttn" value="Bestätigen">
+					<input type="submit" name="confirmBttn" value="Bestaetigen">
 				</td>
 			</tr>
 		</table>

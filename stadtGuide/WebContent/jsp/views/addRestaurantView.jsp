@@ -53,16 +53,16 @@
 			</tr>
 			<tr>
 				<td id="cc">
-					<label><input type="checkbox" name="nourish" value="" />Vegan<br></label>
-					<label><input type="checkbox" name="nourish" value="" />Vegetarisch<br></label>
-					<label><input type="checkbox" name="nourish" value="" />Pescetarisch<br></label>
-					<label><input type="checkbox" name="nourish" value="" />Glutenfrei<br></label>
-					<label><input type="checkbox" name="nourish" value="" />Halal<br></label>
+					<label><input type="checkbox" name="vegan" value="true" />Vegan<br></label>
+					<label><input type="checkbox" name="vegetarisch" value="true" />Vegetarisch<br></label>
+					<label><input type="checkbox" name="halal" value="true" />Halal<br></label>
+					<label><input type="checkbox" name="pescetarisch" value="true" />Pescetarisch<br></label>
+					<label><input type="checkbox" name="glutenfrei" value="true" />Glutenfrei<br></label>
 				</td>
 				<td align="center">
-					<label><input type="radio" name="restPreis" value="" />G&uuml;nstig<br></label>
-					<label><input type="radio" name="restPreis" value="" />Normal<br></label>
-					<label><input type="radio" name="restPreis" value="" />Teuer<br></label>
+					<label><input type="radio" name="restPreis" value="Guenstig" />G&uuml;nstig<br></label>
+					<label><input type="radio" name="restPreis" value="Normal" />Normal<br></label>
+					<label><input type="radio" name="restPreis" value="Teuer" />Teuer<br></label>
 				</td>
 			</tr>
 			<tr>

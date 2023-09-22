@@ -30,7 +30,7 @@
 	}else if(returnBttn.equals("Zurueck")){
 		response.sendRedirect("../views/addToStadtView.jsp");	
 	}else{
-		response.sendRedirect("../views/addToStadtView.jsp");
+		response.sendRedirect("../views/addUnterkunftView.jsp");
 	}
 %>
 </body>

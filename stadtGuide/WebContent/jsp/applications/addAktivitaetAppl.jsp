@@ -20,14 +20,14 @@
 	if (confirmBttn == null){confirmBttn = "";}
 	if (returnBttn == null){returnBttn = "";}
 	
-	if(returnBttn.equals("Zurueck")){
-		response.sendRedirect("../views/addToStadtView.jsp");}
-	else if(confirmBttn.equals("Bestaetigen")){
+	if(confirmBttn.equals("Bestaetigen")){
 		activb.setNewActivName(newActivName);
 		activb.setNewActivAdresse(newActivAdresse);
 		activb.setNewActivity(newActivity);
 		activb.setActivePreis(activePreis);
 		activb.aktivitaetAnlegen();
+		response.sendRedirect("../views/stadtView.jsp");}
+	else if(returnBttn.equals("Zurueck")){
 		response.sendRedirect("../views/addToStadtView.jsp");}
 	else{
 		response.sendRedirect("../views/addAktivitaetView.jsp");}

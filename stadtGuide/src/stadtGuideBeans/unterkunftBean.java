@@ -9,10 +9,12 @@ import jdbc.NoConnectionException;
 import jdbc.PostgreSQLAccess;
 
 public class unterkunftBean {
+	String idUnterkunft;
 	String newStayName;
 	String newStayAdresse;
 	String newStay;
 	String stayPreis;
+	String stadtPLZ;
 	
 	Connection dbConn;
 
@@ -22,35 +24,46 @@ public class unterkunftBean {
 	}
 	
 	public void initialize() {
+		this.idUnterkunft = "";
 		this.newStayName = "";
 		this.newStayAdresse = "";
 		this.newStay = "";
 		this.stayPreis = "";
+		this.stadtPLZ = "";
 	}
 	
 //	public boolean unterkunftCheck() throws SQLException{
 //		//true - Stadt existiert - liegt in der Datenbank vor
 //		//false - Stadt existiert - liegt nicht in der Datenbank vor
-//		String sql = "select name from addons where name = ?";
+//		String sql = "select name from unterkunft where plz = ?";
 //		System.out.println(sql);
 //		PreparedStatement prep = this.dbConn.prepareStatement(sql);
-//		prep.setString(1, this.newStayName);
+//		prep.setString(1, this.stadtPLZ);
 //		ResultSet dbRes = prep.executeQuery();
 //		boolean check = dbRes.next();
 //		return check;
 //	}
 	
 	public void unterkunftAnlegen() throws SQLException {
-		String sql = "insert into unterkunft (name, adresse unterkunftsart, kategorie, preisklasse) values (?,?,?,?,?)";
+		String sql = "insert into unterkunft (id, name, adresse, plz, unterkunftsart, preisklasse) values (?,?,?,?,?,?)";
 		System.out.println(sql);
 		PreparedStatement prep = this.dbConn.prepareStatement(sql);
-		prep.setString(1, this.newStayName);
-		prep.setString(2, this.newStayAdresse);
-		prep.setString(3, this.newStay);
-		prep.setString(4, "Unterkunft");
-		prep.setString(5, this.stayPreis);
+		prep.setString(1, this.idUnterkunft);
+		prep.setString(2, this.newStayName);
+		prep.setString(3, this.newStayAdresse);
+		prep.setString(4, this.stadtPLZ);
+		prep.setString(5, this.newStay);
+		prep.setString(6, this.stayPreis);
 		prep.executeUpdate();
 		System.out.println();
+	}
+
+	public String getIdUnterkunft() {
+		return idUnterkunft;
+	}
+
+	public void setIdUnterkunft(String idUnterkunft) {
+		this.idUnterkunft = idUnterkunft;
 	}
 
 	public String getNewStayName() {
@@ -67,6 +80,14 @@ public class unterkunftBean {
 
 	public void setNewStayAdresse(String newStayAdresse) {
 		this.newStayAdresse = newStayAdresse;
+	}
+
+	public String getStadtPLZ() {
+		return stadtPLZ;
+	}
+
+	public void setStadtPLZ(String stadtPLZ) {
+		this.stadtPLZ = stadtPLZ;
 	}
 
 	public String getNewStay() {

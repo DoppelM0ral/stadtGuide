@@ -54,23 +54,23 @@
 			<tr>
 				<td align="center">
 					<select name="newActivity">
-						<option value="sportlich">Sportlich</option>
-						<option value="unterhaltung">Unterhaltung</option>
-						<option value="bildung">Bildung</option>
+						<option value="Sportlich">Sportlich</option>
+						<option value="Unterhaltung">Unterhaltung</option>
+						<option value="Bildung">Bildung</option>
 					</select>
 				</td>
 				<td>
-					<label><input type="radio" name="activePreis" value="" />G&uuml;nstig<br></label>
-					<label><input type="radio" name="activePreis" value="" />Normal<br></label>
-					<label><input type="radio" name="activePreis" value="" />Teuer<br></label>
+					<label><input type="radio" name="activePreis" value="Guenstig" />G&uuml;nstig<br></label>
+					<label><input type="radio" name="activePreis" value="Normal" />Normal<br></label>
+					<label><input type="radio" name="activePreis" value="Teuer" />Teuer<br></label>
 				</td>
 			</tr>
 			<tr>
 				<td align="center">
-					<input type="submit" name="returnBttn" value="Zurück">
+					<input type="submit" name="returnBttn" value="Zurueck">
 				</td>
 				<td align="center">
-					<input type="submit" name="confirmBttn" value="Bestätigen">
+					<input type="submit" name="confirmBttn" value="Bestaetigen">
 				</td>
 			</tr>
 		</table>
