@@ -54,9 +54,9 @@
 			<tr>
 				<td align="center">
 					<select name="newStay">
-						<option value="Hotel">Hotel</option>
-						<option value="Airbnb">AirBnB</option>
-						<option value="Ferienwohnung">Ferienwohnung</option>
+						<option value="hotel">Hotel</option>
+						<option value="airbnb">AirBnB</option>
+						<option value="ferienwohnung">Ferienwohnung</option>
 					</select>
 				</td>
 				<td id="cc">

@@ -54,9 +54,9 @@
 			<tr>
 				<td align="center">
 					<select name="newActivity">
-						<option value="Sportlich">Sportlich</option>
-						<option value="Unterhaltung">Unterhaltung</option>
-						<option value="Bildung">Bildung</option>
+						<option value="sportlich">Sportlich</option>
+						<option value="unterhaltung">Unterhaltung</option>
+						<option value="bildung">Bildung</option>
 					</select>
 				</td>
 				<td>

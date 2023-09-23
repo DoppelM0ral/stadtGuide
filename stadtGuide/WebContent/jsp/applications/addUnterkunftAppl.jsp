@@ -20,6 +20,27 @@
 	String confirmBttn = request.getParameter("confirmBttn");
 	String returnBttn = request.getParameter("returnBttn");
 	
+	boolean hotel = false;
+	boolean airbnb = false;
+	boolean ferienwohnung = false;
+	
+
+	if (newStay != null) {
+        switch (newStay) {
+            case "hotel":
+                hotel = true;
+                break;
+            case "airbnb":
+                airbnb = true;
+                break;
+            case "ferienwohnung":
+                ferienwohnung = true;
+                break;
+            default:
+                break;
+        }
+    }
+	
 	if(confirmBttn == null){confirmBttn = "";}
 	if(returnBttn == null){returnBttn = "";}
 	
@@ -38,7 +59,9 @@
 		stayb.setStadtPLZ(stadtPLZ);
 		stayb.setNewStayName(newStayName);
 		stayb.setNewStayAdresse(newStayAdresse);
-		stayb.setNewStay(newStay);
+		stayb.setHotel(hotel);
+		stayb.setAirbnb(airbnb);
+		stayb.setFerienwohnung(ferienwohnung);
 		stayb.setStayPreis(stayPreis);
 		stayb.unterkunftAnlegen();
 		response.sendRedirect("../views/stadtView.jsp");}

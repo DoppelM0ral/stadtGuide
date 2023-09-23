@@ -14,9 +14,12 @@ public class kulturBean {
 	String idKultur;
 	String newCultName;
 	String newCultAdresse;
-	String newCult;
 	String cultPreis;
 	String stadtPLZ;
+	boolean museum;
+	boolean historisch;
+	boolean tour;
+	boolean sehenswuerdigkeit;
 	
 	Connection dbConn;
 
@@ -29,9 +32,12 @@ public class kulturBean {
 		this.idKultur = "";
 		this.newCultName = "";
 		this.newCultAdresse = "";
-		this.newCult = "";
 		this.cultPreis = "";
 		this.stadtPLZ = "";
+		this.museum = false;
+		this.historisch = false;
+		this.tour = false;
+		this.sehenswuerdigkeit = false;
 	}
 	
 	public boolean kulturCheck() throws SQLException {
@@ -67,15 +73,18 @@ public class kulturBean {
 
 	public void kulturAnlegen() throws SQLException {
 		this.idKultur = findNextAvailableId();
-		String sql = "insert into kultur (id, name, adresse, plz, kulturaktivitaet, preisklasse) values (?,?,?,?,?,?)";
+		String sql = "insert into kultur (id, name, adresse, plz, museum, historischerPlatz, tour, sehenswuerdigkeit, preisklasse) values (?,?,?,?,?,?,?,?,?)";
 		System.out.println(sql);
 		PreparedStatement prep = this.dbConn.prepareStatement(sql);
 		prep.setString(1, this.idKultur);
 		prep.setString(2, this.newCultName);
 		prep.setString(3, this.newCultAdresse);
 		prep.setString(4, this.stadtPLZ);
-		prep.setString(5, this.newCult);
-		prep.setString(6, this.cultPreis);
+		prep.setBoolean(5, this.museum);
+		prep.setBoolean(6, this.historisch);
+		prep.setBoolean(7, this.tour);
+		prep.setBoolean(8, this.sehenswuerdigkeit);
+		prep.setString(9, this.cultPreis);
 		prep.executeUpdate();
 		System.out.println();
 	}
@@ -112,12 +121,36 @@ public class kulturBean {
 		this.stadtPLZ = stadtPLZ;
 	}
 
-	public String getNewCult() {
-		return newCult;
+	public boolean isMuseum() {
+		return museum;
 	}
 
-	public void setNewCult(String newCult) {
-		this.newCult = newCult;
+	public void setMuseum(boolean museum) {
+		this.museum = museum;
+	}
+
+	public boolean isHistorisch() {
+		return historisch;
+	}
+
+	public void setHistorisch(boolean historisch) {
+		this.historisch = historisch;
+	}
+
+	public boolean isTour() {
+		return tour;
+	}
+
+	public void setTour(boolean tour) {
+		this.tour = tour;
+	}
+
+	public boolean isSehenswuerdigkeit() {
+		return sehenswuerdigkeit;
+	}
+
+	public void setSehenswuerdigkeit(boolean sehenswuerdigkeit) {
+		this.sehenswuerdigkeit = sehenswuerdigkeit;
 	}
 
 	public String getCultPreis() {

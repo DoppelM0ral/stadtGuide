@@ -55,10 +55,10 @@
 			<tr>
 				<td align="center">
 					<select id="newCult" name="newCult">
-						<option value="Museum">Museum</option>
-						<option value="Historisch">Historischer Platz</option>
-						<option value="Tour">Tour</option>
-						<option value="Sehenswuerdigkeit">Sehensw&uuml;rdigkeit</option>
+						<option value="museum">Museum</option>
+						<option value="historisch">Historischer Platz</option>
+						<option value="tour">Tour</option>
+						<option value="sehenswuerdigkeit">Sehensw&uuml;rdigkeit</option>
 					</select>
 				</td>
 				<td align="center">

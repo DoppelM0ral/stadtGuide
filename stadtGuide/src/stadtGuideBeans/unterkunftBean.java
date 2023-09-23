@@ -14,9 +14,11 @@ public class unterkunftBean {
 	String idUnterkunft;
 	String newStayName;
 	String newStayAdresse;
-	String newStay;
 	String stayPreis;
 	String stadtPLZ;
+	boolean hotel;
+	boolean airbnb;
+	boolean ferienwohnung;
 	
 	Connection dbConn;
 
@@ -29,9 +31,11 @@ public class unterkunftBean {
 		this.idUnterkunft = "";
 		this.newStayName = "";
 		this.newStayAdresse = "";
-		this.newStay = "";
 		this.stayPreis = "";
 		this.stadtPLZ = "";
+		this.hotel = false;
+		this.airbnb = false;
+		this.ferienwohnung = false;
 	}
 	
 	public boolean unterkunftCheck() throws SQLException {
@@ -67,15 +71,17 @@ public class unterkunftBean {
 	
 	public void unterkunftAnlegen() throws SQLException {
 		this.idUnterkunft = findNextAvailableId();
-		String sql = "insert into unterkunft (id, name, adresse, plz, unterkunftsart, preisklasse) values (?,?,?,?,?,?)";
+		String sql = "insert into unterkunft (id, name, adresse, plz, hotel, airbnb, ferienwohnung, preisklasse) values (?,?,?,?,?,?,?,?)";
 		System.out.println(sql);
 		PreparedStatement prep = this.dbConn.prepareStatement(sql);
 		prep.setString(1, this.idUnterkunft);
 		prep.setString(2, this.newStayName);
 		prep.setString(3, this.newStayAdresse);
 		prep.setString(4, this.stadtPLZ);
-		prep.setString(5, this.newStay);
-		prep.setString(6, this.stayPreis);
+		prep.setBoolean(5, this.hotel);
+		prep.setBoolean(6, this.airbnb);
+		prep.setBoolean(7, this.ferienwohnung);
+		prep.setString(8, this.stayPreis);
 		prep.executeUpdate();
 		System.out.println();
 	}
@@ -112,12 +118,28 @@ public class unterkunftBean {
 		this.stadtPLZ = stadtPLZ;
 	}
 
-	public String getNewStay() {
-		return newStay;
+	public boolean isHotel() {
+		return hotel;
 	}
 
-	public void setNewStay(String newStay) {
-		this.newStay = newStay;
+	public void setHotel(boolean hotel) {
+		this.hotel = hotel;
+	}
+
+	public boolean isAirbnb() {
+		return airbnb;
+	}
+
+	public void setAirbnb(boolean airbnb) {
+		this.airbnb = airbnb;
+	}
+
+	public boolean isFerienwohnung() {
+		return ferienwohnung;
+	}
+
+	public void setFerienwohnung(boolean ferienwohnung) {
+		this.ferienwohnung = ferienwohnung;
 	}
 
 	public String getStayPreis() {

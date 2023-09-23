@@ -14,9 +14,11 @@ public class aktivitaetBean {
 	String idAktiv;
 	String newActivName;
 	String newActivAdresse;
-	String newActivity;
 	String activePreis;
 	String stadtPLZ;
+	boolean sportlich;
+	boolean unterhaltung;
+	boolean bildung;
 	
 	Connection dbConn;
 
@@ -29,9 +31,11 @@ public class aktivitaetBean {
 		this.idAktiv = "";
 		this.newActivName = "";
 		this.newActivAdresse = "";
-		this.newActivity = "";
 		this.activePreis = "";
 		this.stadtPLZ = "";
+		this.sportlich = false;
+		this.unterhaltung = false;
+		this.bildung = false;
 	}
 	
 	public boolean aktivitaetCheck() throws SQLException {
@@ -67,15 +71,17 @@ public class aktivitaetBean {
 	
 	public void aktivitaetAnlegen() throws SQLException {
 		this.idAktiv = findNextAvailableId();
-		String sql = "insert into aktivitaet (id, name, adresse, plz, aktivitaetsart, preisklasse) values (?,?,?,?,?,?)";
+		String sql = "insert into aktivitaet (id, name, adresse, plz, sportlich, unterhaltung, bildung, preisklasse) values (?,?,?,?,?,?,?,?)";
 		System.out.println(sql);
 		PreparedStatement prep = this.dbConn.prepareStatement(sql);
 		prep.setString(1, this.idAktiv);
 		prep.setString(2, this.newActivName);
 		prep.setString(3, this.newActivAdresse);
 		prep.setString(4, this.stadtPLZ);
-		prep.setString(5, this.newActivity);
-		prep.setString(6, this.activePreis);
+		prep.setBoolean(5, this.sportlich);
+		prep.setBoolean(6, this.unterhaltung);
+		prep.setBoolean(7, this.bildung);
+		prep.setString(8, this.activePreis);
 		prep.executeUpdate();
 		System.out.println();
 	}
@@ -112,12 +118,28 @@ public class aktivitaetBean {
 		this.stadtPLZ = stadtPLZ;
 	}
 
-	public String getNewActivity() {
-		return newActivity;
+	public boolean isSportlich() {
+		return sportlich;
 	}
 
-	public void setNewActivity(String newActivity) {
-		this.newActivity = newActivity;
+	public void setSportlich(boolean sportlich) {
+		this.sportlich = sportlich;
+	}
+
+	public boolean isUnterhaltung() {
+		return unterhaltung;
+	}
+
+	public void setUnterhaltung(boolean unterhaltung) {
+		this.unterhaltung = unterhaltung;
+	}
+
+	public boolean isBildung() {
+		return bildung;
+	}
+
+	public void setBildung(boolean bildung) {
+		this.bildung = bildung;
 	}
 
 	public String getActivePreis() {

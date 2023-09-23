@@ -20,6 +20,26 @@
 	String confirmBttn = request.getParameter("confirmBttn");
 	String returnBttn = request.getParameter("returnBttn");
 	
+	boolean sportlich = false;
+	boolean unterhaltung = false;
+	boolean bildung = false;
+	
+	if (newActivity != null) {
+        switch (newActivity) {
+            case "sportlich":
+                sportlich = true;
+                break;
+            case "unterhaltung":
+                unterhaltung = true;
+                break;
+            case "bildung":
+                bildung = true;
+                break;
+            default:
+                break;
+        }
+    }
+	
 	if (confirmBttn == null){confirmBttn = "";}
 	if (returnBttn == null){returnBttn = "";}
 	
@@ -38,7 +58,9 @@
 		activb.setStadtPLZ(stadtPLZ);
 		activb.setNewActivName(newActivName);
 		activb.setNewActivAdresse(newActivAdresse);
-		activb.setNewActivity(newActivity);
+		activb.setSportlich(sportlich);
+		activb.setUnterhaltung(unterhaltung);
+		activb.setBildung(bildung);
 		activb.setActivePreis(activePreis);
 		activb.aktivitaetAnlegen();
 		response.sendRedirect("../views/stadtView.jsp");}

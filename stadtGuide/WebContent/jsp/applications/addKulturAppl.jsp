@@ -21,6 +21,30 @@
 	String confirmBttn = request.getParameter("confirmBttn");
 	String returnBttn = request.getParameter("returnBttn");
 	
+	boolean museum = false;
+	boolean historisch = false;
+	boolean tour = false;
+	boolean sehenswuerdigkeit = false;
+	
+	if (newCult != null) {
+        switch (newCult) {
+            case "museum":
+                museum = true;
+                break;
+            case "historisch":
+                historisch = true;
+                break;
+            case "tour":
+                tour = true;
+                break;
+            case "sehenswuerdigkeit":
+            	sehenswuerdigkeit = true;
+                break;
+            default:
+                break;
+        }
+    }
+	
 	if (confirmBttn == null){confirmBttn = "";}
 	if (returnBttn == null){returnBttn = "";}
 	
@@ -39,7 +63,10 @@
 		cultb.setStadtPLZ(stadtPLZ);
 		cultb.setNewCultName(newCultName);
 		cultb.setNewCultAdresse(newCultAdresse);
-		cultb.setNewCult(newCult);
+		cultb.setMuseum(museum);
+		cultb.setHistorisch(historisch);
+		cultb.setTour(tour);
+		cultb.setSehenswuerdigkeit(sehenswuerdigkeit);
 		cultb.setCultPreis(cultPreis);
 		cultb.kulturAnlegen();
 		response.sendRedirect("../views/stadtView.jsp");}
