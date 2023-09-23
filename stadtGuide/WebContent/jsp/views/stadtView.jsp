@@ -62,7 +62,7 @@
 						<tr>
 							<td width="100%">
 								<p>Für ihre Suche sind die folgenden Ergebnisse in unserer Datenbank vorhanden: </p>
-								<p></p>
+								<jsp:getProperty name="sb" property="searchResults"/>
 							</td>
 						</tr>
 					</table>
