@@ -14,8 +14,13 @@ public class unterkunftBean {
 	String idUnterkunft;
 	String newStayName;
 	String newStayAdresse;
-	String stayPreis;
 	String stadtPLZ;
+	String guenstigString = "true";
+	boolean guenstig;
+	String normalString = "true";
+	boolean normal;
+	String teuerString = "true";
+	boolean teuer;
 	boolean hotel;
 	boolean airbnb;
 	boolean ferienwohnung;
@@ -31,7 +36,6 @@ public class unterkunftBean {
 		this.idUnterkunft = "";
 		this.newStayName = "";
 		this.newStayAdresse = "";
-		this.stayPreis = "";
 		this.stadtPLZ = "";
 		this.hotel = false;
 		this.airbnb = false;
@@ -71,7 +75,7 @@ public class unterkunftBean {
 	
 	public void unterkunftAnlegen() throws SQLException {
 		this.idUnterkunft = findNextAvailableId();
-		String sql = "insert into unterkunft (id, name, adresse, plz, hotel, airbnb, ferienwohnung, preisklasse) values (?,?,?,?,?,?,?,?)";
+		String sql = "insert into unterkunft (id, name, adresse, plz, hotel, airbnb, ferienwohnung, guenstig, normal, teuer) values (?,?,?,?,?,?,?,?,?,?)";
 		System.out.println(sql);
 		PreparedStatement prep = this.dbConn.prepareStatement(sql);
 		prep.setString(1, this.idUnterkunft);
@@ -81,7 +85,9 @@ public class unterkunftBean {
 		prep.setBoolean(5, this.hotel);
 		prep.setBoolean(6, this.airbnb);
 		prep.setBoolean(7, this.ferienwohnung);
-		prep.setString(8, this.stayPreis);
+		prep.setBoolean(8, this.guenstig);
+		prep.setBoolean(9, this.normal);
+		prep.setBoolean(10, this.teuer);
 		prep.executeUpdate();
 		System.out.println();
 	}
@@ -142,12 +148,28 @@ public class unterkunftBean {
 		this.ferienwohnung = ferienwohnung;
 	}
 
-	public String getStayPreis() {
-		return stayPreis;
+	public boolean isGuenstig() {
+		return guenstig;
 	}
 
-	public void setStayPreis(String stayPreis) {
-		this.stayPreis = stayPreis;
+	public void setGuenstig(boolean guenstig) {
+		this.guenstig = guenstig;
+	}
+
+	public boolean isNormal() {
+		return normal;
+	}
+
+	public void setNormal(boolean normal) {
+		this.normal = normal;
+	}
+
+	public boolean isTeuer() {
+		return teuer;
+	}
+
+	public void setTeuer(boolean teuer) {
+		this.teuer = teuer;
 	}
 
 	public Connection getDbConn() {

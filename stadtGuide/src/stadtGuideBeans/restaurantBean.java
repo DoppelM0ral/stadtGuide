@@ -14,8 +14,13 @@ public class restaurantBean {
 	String idRestaurant;
 	String newRestName;
 	String newRestAdresse;
-	String restPreis;
 	String stadtPLZ;
+	String guenstigString = "true";
+	boolean guenstig;
+	String normalString = "true";
+	boolean normal;
+	String teuerString = "true";
+	boolean teuer;
 	String veganString = "true";
 	boolean vegan;
 	String vegetarischString = "true";
@@ -38,7 +43,6 @@ public class restaurantBean {
 		this.idRestaurant = "";
 		this.newRestName = "";
 		this.newRestAdresse = "";
-		this.restPreis = "";
 		this.stadtPLZ = "";
 	}
 	
@@ -75,7 +79,7 @@ public class restaurantBean {
 	
 	public void restaurantAnlegen() throws SQLException {
 		this.idRestaurant = findNextAvailableId();
-		String sql = "insert into restaurant (id, name, adresse, plz, vegan, vegetarisch, halal, pescetarisch, glutenfrei, preisklasse) values (?,?,?,?,?,?,?,?,?,?)";
+		String sql = "insert into restaurant (id, name, adresse, plz, vegan, vegetarisch, halal, pescetarisch, glutenfrei, guenstig, normal, teuer) values (?,?,?,?,?,?,?,?,?,?,?,?)";
 		System.out.println(sql);
 		PreparedStatement prep = this.dbConn.prepareStatement(sql);
 		prep.setString(1, this.idRestaurant);
@@ -87,7 +91,9 @@ public class restaurantBean {
 		prep.setBoolean(7, this.halal);
 		prep.setBoolean(8, this.pescetarisch);
 		prep.setBoolean(9, this.glutenfrei);
-		prep.setString(10, this.restPreis);
+		prep.setBoolean(10, this.guenstig);
+		prep.setBoolean(11, this.normal);
+		prep.setBoolean(12, this.teuer);
 		prep.executeUpdate();
 		System.out.println();
 	}
@@ -172,13 +178,28 @@ public class restaurantBean {
 		this.stadtPLZ = stadtPLZ;
 	}
 
-	public String getRestPreis() {
-		return restPreis;
+	public boolean isGuenstig() {
+		return guenstig;
 	}
 
-	public void setRestPreis(String restPreis) {
-		this.restPreis = restPreis;
+	public void setGuenstig(boolean guenstig) {
+		this.guenstig = guenstig;
 	}
-	
+
+	public boolean isNormal() {
+		return normal;
+	}
+
+	public void setNormal(boolean normal) {
+		this.normal = normal;
+	}
+
+	public boolean isTeuer() {
+		return teuer;
+	}
+
+	public void setTeuer(boolean teuer) {
+		this.teuer = teuer;
+	}
 	
 }

@@ -60,9 +60,9 @@
 					<label><input type="checkbox" name="glutenfrei" value="true" />Glutenfrei<br></label>
 				</td>
 				<td align="center">
-					<label><input type="radio" name="restPreis" value="Guenstig" />G&uuml;nstig<br></label>
-					<label><input type="radio" name="restPreis" value="Normal" />Normal<br></label>
-					<label><input type="radio" name="restPreis" value="Teuer" />Teuer<br></label>
+					<label><input type="radio" name="guenstig" value="true" />G&uuml;nstig<br></label>
+					<label><input type="radio" name="normal" value="true" />Normal<br></label>
+					<label><input type="radio" name="teuer" value="true" />Teuer<br></label>
 				</td>
 			</tr>
 			<tr>

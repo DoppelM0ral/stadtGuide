@@ -15,13 +15,14 @@
 <%
 	String newRestName = request.getParameter("newRestName");
 	String newRestAdresse = request.getParameter("newRestAdresse");
-	String newRestFood = request.getParameter("newRestName");
 	String veganString = request.getParameter("vegan");
 	String vegetarischString = request.getParameter("vegetarisch");
 	String halalString = request.getParameter("halal");
 	String pescetarischString = request.getParameter("pescetarisch");
 	String glutenfreiString = request.getParameter("glutenfrei");
-	String restPreis = request.getParameter("restPreis");
+	String guenstigString = request.getParameter("guenstig");
+	String normalString = request.getParameter("normal");
+	String teuerString = request.getParameter("teuer");
 	String confirmBttn = request.getParameter("confirmBttn");
 	String returnBttn = request.getParameter("returnBttn");
 	
@@ -30,6 +31,10 @@
 	boolean halal = Boolean.parseBoolean(halalString);
 	boolean pescetarisch = Boolean.parseBoolean(pescetarischString);
 	boolean glutenfrei = Boolean.parseBoolean(glutenfreiString);
+	
+	boolean guenstig = Boolean.parseBoolean(guenstigString);
+	boolean normal = Boolean.parseBoolean(normalString);
+	boolean teuer = Boolean.parseBoolean(teuerString);
 	
 	if(confirmBttn == null){confirmBttn = "";}
 	if(returnBttn == null){returnBttn = "";}
@@ -54,7 +59,9 @@
 		restB.setHalal(halal);
 		restB.setPescetarisch(pescetarisch);
 		restB.setGlutenfrei(glutenfrei);
-		restB.setRestPreis(restPreis);
+		restB.setGuenstig(guenstig);
+		restB.setNormal(normal);
+		restB.setTeuer(teuer);
 		restB.restaurantAnlegen();
 		response.sendRedirect("../views/stadtView.jsp");}
 	}else if(returnBttn.equals("Zurueck")){

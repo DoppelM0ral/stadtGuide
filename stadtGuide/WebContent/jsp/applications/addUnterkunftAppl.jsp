@@ -16,9 +16,15 @@
 	String newStayName = request.getParameter("newStayName");
 	String newStayAdresse = request.getParameter("newStayAdresse");
 	String newStay = request.getParameter("newStay");
-	String stayPreis = request.getParameter("stayPreis");
+	String guenstigString = request.getParameter("guenstig");
+	String normalString = request.getParameter("normal");
+	String teuerString = request.getParameter("teuer");
 	String confirmBttn = request.getParameter("confirmBttn");
 	String returnBttn = request.getParameter("returnBttn");
+	
+	boolean guenstig = Boolean.parseBoolean(guenstigString);
+	boolean normal = Boolean.parseBoolean(normalString);
+	boolean teuer = Boolean.parseBoolean(teuerString);
 	
 	boolean hotel = false;
 	boolean airbnb = false;
@@ -62,7 +68,9 @@
 		stayb.setHotel(hotel);
 		stayb.setAirbnb(airbnb);
 		stayb.setFerienwohnung(ferienwohnung);
-		stayb.setStayPreis(stayPreis);
+		stayb.setGuenstig(guenstig);
+		stayb.setNormal(normal);
+		stayb.setTeuer(teuer);
 		stayb.unterkunftAnlegen();
 		response.sendRedirect("../views/stadtView.jsp");}
 	}else if(returnBttn.equals("Zurueck")){

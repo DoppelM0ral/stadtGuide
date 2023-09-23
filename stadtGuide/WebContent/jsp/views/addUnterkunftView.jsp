@@ -60,9 +60,9 @@
 					</select>
 				</td>
 				<td id="cc">
-					<label><input type="radio" name="stayPreis" value="Guenstig" />G&uuml;nstig<br></label>
-					<label><input type="radio" name="stayPreis" value="Normal" />Normal<br></label>
-					<label><input type="radio" name="stayPreis" value="Teuer" />Teuer<br></label>
+					<label><input type="radio" name="guenstig" value="true" />G&uuml;nstig<br></label>
+					<label><input type="radio" name="normal" value="true" />Normal<br></label>
+					<label><input type="radio" name="teuer" value="true" />Teuer<br></label>
 				</td>
 			</tr>
 			<tr>

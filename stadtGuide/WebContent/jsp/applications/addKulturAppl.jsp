@@ -8,7 +8,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Application</title>
-<script type="text/javascript" src="../js/addKulturJS.js"></script>
+<script type="text/javascript" src="../../js/addKulturJS.js"></script>
 </head>
 <body>
 <jsp:useBean id="cultb" class="stadtGuideBeans.kulturBean" scope="session"/>
@@ -17,9 +17,15 @@
 	String newCultName = request.getParameter("newCultName");
 	String newCultAdresse = request.getParameter("newCultAdresse");
 	String newCult = request.getParameter("newCult");
-	String cultPreis = request.getParameter("cultPreis");
+	String guenstigString = request.getParameter("guenstig");
+	String normalString = request.getParameter("normal");
+	String teuerString = request.getParameter("teuer");
 	String confirmBttn = request.getParameter("confirmBttn");
 	String returnBttn = request.getParameter("returnBttn");
+	
+	boolean guenstig = Boolean.parseBoolean(guenstigString);
+	boolean normal = Boolean.parseBoolean(normalString);
+	boolean teuer = Boolean.parseBoolean(teuerString);
 	
 	boolean museum = false;
 	boolean historisch = false;
@@ -67,7 +73,9 @@
 		cultb.setHistorisch(historisch);
 		cultb.setTour(tour);
 		cultb.setSehenswuerdigkeit(sehenswuerdigkeit);
-		cultb.setCultPreis(cultPreis);
+		cultb.setGuenstig(guenstig);
+		cultb.setNormal(normal);
+		cultb.setTeuer(teuer);
 		cultb.kulturAnlegen();
 		response.sendRedirect("../views/stadtView.jsp");}
 	}else if(returnBttn.equals("Zurueck")){

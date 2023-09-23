@@ -6,7 +6,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <link type="text/css" rel="stylesheet" href="../../css/addToStadtViewCSS.css"/>
-<script type="text/javascript" src="../js/addKulturJS.js"></script>
+<script type="text/javascript" src="../../js/addKulturJS.js"></script>
 <title>Kultur anlegen</title>
 </head>
 <body>
@@ -62,9 +62,9 @@
 					</select>
 				</td>
 				<td align="center">
-					<label><input type="radio" name="cultPreis" value="Guenstig" />G&uuml;nstig<br></label>
-					<label><input type="radio" name="cultPreis" value="Normal" />Normal<br></label>
-					<label><input type="radio" name="cultPreis" value="Teuer" />Teuer<br></label>
+					<label><input type="radio" name="guenstig" value="true" />G&uuml;nstig<br></label>
+					<label><input type="radio" name="normal" value="true" />Normal<br></label>
+					<label><input type="radio" name="teuer" value="true" />Teuer<br></label>
 				</td>
 			</tr>
 			<tr>

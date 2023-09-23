@@ -6,6 +6,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <link type="text/css" rel="stylesheet" href="../../css/addToStadtViewCSS.css"/>
+<script src="/stadtGuide/js/addAktivitaetJS.js"></script>
 <title>Aktivit&auml;t anlegen</title>
 </head>
 <body>
@@ -60,9 +61,9 @@
 					</select>
 				</td>
 				<td>
-					<label><input type="radio" name="activePreis" value="Guenstig" />G&uuml;nstig<br></label>
-					<label><input type="radio" name="activePreis" value="Normal" />Normal<br></label>
-					<label><input type="radio" name="activePreis" value="Teuer" />Teuer<br></label>
+					<label><input type="radio" name="guenstig" value="true" />G&uuml;nstig<br></label>
+					<label><input type="radio" name="normal" value="true" />Normal<br></label>
+					<label><input type="radio" name="teuer" value="true" />Teuer<br></label>
 				</td>
 			</tr>
 			<tr>

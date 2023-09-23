@@ -7,7 +7,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Application</title>
-<script type="text/javascript" src="../js/addKulturJS.js"></script>
+<script type="text/javascript" src="../js/addAktivitaetJS.js"></script>
 </head>
 <body>
 <jsp:useBean id="activb" class="stadtGuideBeans.aktivitaetBean" scope="session"/>
@@ -16,9 +16,15 @@
 	String newActivName = request.getParameter("newActivName");
 	String newActivAdresse = request.getParameter("newActivAdresse");
 	String newActivity = request.getParameter("newActivity");
-	String activePreis = request.getParameter("activePreis");
+	String guenstigString = request.getParameter("guenstig");
+	String normalString = request.getParameter("normal");
+	String teuerString = request.getParameter("teuer");
 	String confirmBttn = request.getParameter("confirmBttn");
 	String returnBttn = request.getParameter("returnBttn");
+	
+	boolean guenstig = Boolean.parseBoolean(guenstigString);
+	boolean normal = Boolean.parseBoolean(normalString);
+	boolean teuer = Boolean.parseBoolean(teuerString);
 	
 	boolean sportlich = false;
 	boolean unterhaltung = false;
@@ -40,6 +46,7 @@
         }
     }
 	
+	
 	if (confirmBttn == null){confirmBttn = "";}
 	if (returnBttn == null){returnBttn = "";}
 	
@@ -49,7 +56,7 @@
 			String errorMessage = "Die Akivitaet existiert bereits.";
 	        %>
 	        <script>
-	        showError("<%= errorMessage %>");
+	        showError(<%=errorMessage%>);
 	        </script>
 	        <%
 	        response.sendRedirect("../views/addAktivitaetView.jsp");
@@ -61,7 +68,9 @@
 		activb.setSportlich(sportlich);
 		activb.setUnterhaltung(unterhaltung);
 		activb.setBildung(bildung);
-		activb.setActivePreis(activePreis);
+		activb.setGuenstig(guenstig);
+		activb.setNormal(normal);
+		activb.setTeuer(teuer);
 		activb.aktivitaetAnlegen();
 		response.sendRedirect("../views/stadtView.jsp");}
 	}else if(returnBttn.equals("Zurueck")){

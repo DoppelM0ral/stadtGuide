@@ -14,8 +14,13 @@ public class aktivitaetBean {
 	String idAktiv;
 	String newActivName;
 	String newActivAdresse;
-	String activePreis;
 	String stadtPLZ;
+	String guenstigString = "true";
+	boolean guenstig;
+	String normalString = "true";
+	boolean normal;
+	String teuerString = "true";
+	boolean teuer;
 	boolean sportlich;
 	boolean unterhaltung;
 	boolean bildung;
@@ -31,7 +36,6 @@ public class aktivitaetBean {
 		this.idAktiv = "";
 		this.newActivName = "";
 		this.newActivAdresse = "";
-		this.activePreis = "";
 		this.stadtPLZ = "";
 		this.sportlich = false;
 		this.unterhaltung = false;
@@ -69,9 +73,15 @@ public class aktivitaetBean {
         }
     }
 	
+	private void convertRadioButtonsToBooleans(String selectedValue) {
+        guenstig = "guenstig".equals(selectedValue);
+        normal = "normal".equals(selectedValue);
+        teuer = "teuer".equals(selectedValue);
+    }
+	
 	public void aktivitaetAnlegen() throws SQLException {
 		this.idAktiv = findNextAvailableId();
-		String sql = "insert into aktivitaet (id, name, adresse, plz, sportlich, unterhaltung, bildung, preisklasse) values (?,?,?,?,?,?,?,?)";
+		String sql = "insert into aktivitaet (id, name, adresse, plz, sportlich, unterhaltung, bildung, guenstig, normal, teuer) values (?,?,?,?,?,?,?,?,?,?)";
 		System.out.println(sql);
 		PreparedStatement prep = this.dbConn.prepareStatement(sql);
 		prep.setString(1, this.idAktiv);
@@ -81,7 +91,9 @@ public class aktivitaetBean {
 		prep.setBoolean(5, this.sportlich);
 		prep.setBoolean(6, this.unterhaltung);
 		prep.setBoolean(7, this.bildung);
-		prep.setString(8, this.activePreis);
+		prep.setBoolean(8, this.guenstig);
+		prep.setBoolean(9, this.normal);
+		prep.setBoolean(10, this.teuer);
 		prep.executeUpdate();
 		System.out.println();
 	}
@@ -141,15 +153,31 @@ public class aktivitaetBean {
 	public void setBildung(boolean bildung) {
 		this.bildung = bildung;
 	}
-
-	public String getActivePreis() {
-		return activePreis;
-	}
-
-	public void setActivePreis(String activePreis) {
-		this.activePreis = activePreis;
-	}
 	
+	public boolean isGuenstig() {
+		return guenstig;
+	}
+
+	public void setGuenstig(boolean guenstig) {
+		this.guenstig = guenstig;
+	}
+
+	public boolean isNormal() {
+		return normal;
+	}
+
+	public void setNormal(boolean normal) {
+		this.normal = normal;
+	}
+
+	public boolean isTeuer() {
+		return teuer;
+	}
+
+	public void setTeuer(boolean teuer) {
+		this.teuer = teuer;
+	}
+
 	public Connection getDbConn() {
 		return dbConn;
 	}
