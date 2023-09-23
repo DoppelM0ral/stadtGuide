@@ -8,6 +8,7 @@
 </head>
 <body>
 <jsp:useBean id="sb" class="stadtGuideBeans.stadtBean" scope="session"/>
+<jsp:useBean id="ab" class="stadtGuideBeans.addBean" scope="session"/>
 	This shouldnt be possible :)
 	Gotta work on that
 	
@@ -34,7 +35,9 @@
 			sb.data();
 			response.sendRedirect("../views/stadtView.jsp");}
 		else if (addNewBttn.equals("Neue Stadt anlegen")){
-			response.sendRedirect("../views/addStadtView.jsp");}
+			ab.setStadtName(newCityName);
+			response.sendRedirect("../views/addStadtView.jsp");
+		}
 		else{
 			response.sendRedirect("../views/auswahlView.jsp");}
 		%>

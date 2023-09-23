@@ -8,6 +8,7 @@
 <title>Stadtguide - neue Stadt</title>
 </head>
 <body>
+<jsp:useBean id="ab" class="stadtGuideBeans.addBean" scope="session"/>
 	<br>
 	<br>
 	<br>
@@ -35,7 +36,7 @@
 				</tr>
 				<tr>
 					<td align="center">
-						<input type="text" name="nameStadt" value="">
+						<input type="text" name="nameStadt" value='<jsp:getProperty property="stadtName" name="ab"/>'>
 					</td>
 					<td align="center">
 						<input type="text" name="plzStadt" value="">
