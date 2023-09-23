@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import jdbc.NoConnectionException;
 import jdbc.PostgreSQLAccess;
@@ -32,39 +34,39 @@ public class kulturBean {
 		this.stadtPLZ = "";
 	}
 	
-//	public boolean kulturCheck() throws SQLException{
-//		//true - Stadt existiert - liegt in der Datenbank vor
-//		//false - Stadt existiert - liegt nicht in der Datenbank vor
-//		String sql = "select name from kultur where plz = ?";
-//		System.out.println(sql);
-//		PreparedStatement prep = this.dbConn.prepareStatement(sql);
-//		prep.setString(1, this.stadtPLZ);
-//		ResultSet dbRes = prep.executeQuery();
-//		boolean check = dbRes.next();
-//		return check;
-//	}
-//	public void data() throws NoConnectionException, SQLException{
-//		String sql = "SELECT plz FROM staedte WHERE stadt = '" + this.stadt+ "'";
-//		ResultSet dbRes = new PostgreSQLAccess().getConnection().
-//					prepareStatement(sql).executeQuery();
-//			if(dbRes.next()){
-//			this.stadtPLZ = dbRes.getString("plz");
-//			}
-//	}
-	
-//	public int zaehler() {
-//		int counter = 0;
-//		counter++;
-//		return counter;
-//	}
-	int counter = 0;
-	public String zaehlerID() {
-		this.counter++;
-		String idKultur = "k" + this.counter;
-	    return idKultur;
+	public boolean kulturCheck() throws SQLException {
+	    String sql = "SELECT id FROM kultur WHERE UPPER(name) = UPPER(?)";
+	    PreparedStatement prep = this.dbConn.prepareStatement(sql);
+	    prep.setString(1, this.newCultName);
+	    ResultSet dbRes = prep.executeQuery();
+	    boolean check = dbRes.next();
+	    return check;
 	}
-	
+
+	 public String findNextAvailableId() throws SQLException {
+	        String sql = "SELECT id FROM kultur";
+	        PreparedStatement prep = this.dbConn.prepareStatement(sql);
+	        ResultSet resultSet = prep.executeQuery();
+
+	        List<String> existingIds = new ArrayList<>();
+
+	        while (resultSet.next()) {
+	            existingIds.add(resultSet.getString("id"));
+	        }
+
+	        // Schleife, um die nächste verfügbare ID zu finden
+	        int counter = 1;
+	        while (true) {
+	            String potentialId = "k" + counter;
+	            if (!existingIds.contains(potentialId)) {
+	                return potentialId; // Die nächste verfügbare ID gefunden
+	            }
+	            counter++;
+	        }
+	    }
+
 	public void kulturAnlegen() throws SQLException {
+		this.idKultur = findNextAvailableId();
 		String sql = "insert into kultur (id, name, adresse, plz, kulturaktivitaet, preisklasse) values (?,?,?,?,?,?)";
 		System.out.println(sql);
 		PreparedStatement prep = this.dbConn.prepareStatement(sql);
@@ -76,55 +78,6 @@ public class kulturBean {
 		prep.setString(6, this.cultPreis);
 		prep.executeUpdate();
 		System.out.println();
-	}
-//	public void insertUser(String name) {
-//        try {
-//            String insertQuery = "INSERT INTO kultur (unique_id, name) VALUES (DEFAULT, ?)";
-//            PreparedStatement preparedStatement = this.dbConn.prepareStatement(insertQuery);
-//            preparedStatement.setString(1, name);
-//            preparedStatement.executeUpdate();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//	}
-//	public String plz() {
-//	try {
-//	    
-//	    // Abfrage zum Abrufen des Strings aus der Quelltabelle
-//	    String sqlSelect = "SELECT plz FROM staedte WHERE plz = '"+this.stadtPLZ+"'";
-//	    PreparedStatement selectStatement = this.dbConn.prepareStatement(sqlSelect);
-//	    selectStatement.setString(1, this.stadtPLZ); // Anpassen
-//	    ResultSet resultSet = selectStatement.executeQuery();
-//	    
-//	    if (resultSet.next()) {
-//	        String gespeicherterString = resultSet.getString("plz");
-//	        
-//	        // Abfrage zum Einfügen des Strings in die Ziel-Tabelle
-//	        String sqlInsert = "INSERT INTO restaurants (plz) VALUES (?)";
-//	        PreparedStatement insertStatement = this.dbConn.prepareStatement(sqlInsert);
-//	        insertStatement.setString(1, gespeicherterString);
-//	        
-//	        // SQL-Abfrage zum Einfügen ausführen
-//	        insertStatement.executeUpdate();
-//	        
-//	        // Ressourcen schließen
-//	        insertStatement.close();
-//	    }
-//	    
-//	    // Ressourcen schließen
-//	    resultSet.close();
-//	    selectStatement.close();
-//	} catch (SQLException e) {
-//	    e.printStackTrace();
-//	}
-//	
-//	}
-	public int getCounter() {
-		return counter;
-	}
-
-	public void setCounter(int counter) {
-		this.counter = counter;
 	}
 	
 	public String getIdKultur() {

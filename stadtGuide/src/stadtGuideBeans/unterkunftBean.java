@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import jdbc.NoConnectionException;
 import jdbc.PostgreSQLAccess;
@@ -32,19 +34,39 @@ public class unterkunftBean {
 		this.stadtPLZ = "";
 	}
 	
-//	public boolean unterkunftCheck() throws SQLException{
-//		//true - Stadt existiert - liegt in der Datenbank vor
-//		//false - Stadt existiert - liegt nicht in der Datenbank vor
-//		String sql = "select name from unterkunft where plz = ?";
-//		System.out.println(sql);
-//		PreparedStatement prep = this.dbConn.prepareStatement(sql);
-//		prep.setString(1, this.stadtPLZ);
-//		ResultSet dbRes = prep.executeQuery();
-//		boolean check = dbRes.next();
-//		return check;
-//	}
+	public boolean unterkunftCheck() throws SQLException {
+	    String sql = "SELECT id FROM unterkunft WHERE UPPER(name) = UPPER(?)";
+	    PreparedStatement prep = this.dbConn.prepareStatement(sql);
+	    prep.setString(1, this.newStayName);
+	    ResultSet dbRes = prep.executeQuery();
+	    boolean check = dbRes.next();
+	    return check;
+	}
+	
+	public String findNextAvailableId() throws SQLException {
+        String sql = "SELECT id FROM unterkunft";
+        PreparedStatement prep = this.dbConn.prepareStatement(sql);
+        ResultSet resultSet = prep.executeQuery();
+
+        List<String> existingIds = new ArrayList<>();
+
+        while (resultSet.next()) {
+            existingIds.add(resultSet.getString("id"));
+        }
+
+        // Schleife, um die nächste verfügbare ID zu finden
+        int counter = 1;
+        while (true) {
+            String potentialId = "u" + counter;
+            if (!existingIds.contains(potentialId)) {
+                return potentialId; // Die nächste verfügbare ID gefunden
+            }
+            counter++;
+        }
+    }
 	
 	public void unterkunftAnlegen() throws SQLException {
+		this.idUnterkunft = findNextAvailableId();
 		String sql = "insert into unterkunft (id, name, adresse, plz, unterkunftsart, preisklasse) values (?,?,?,?,?,?)";
 		System.out.println(sql);
 		PreparedStatement prep = this.dbConn.prepareStatement(sql);

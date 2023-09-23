@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import jdbc.NoConnectionException;
 import jdbc.PostgreSQLAccess;
@@ -40,20 +42,40 @@ public class restaurantBean {
 		this.stadtPLZ = "";
 	}
 	
-//	public boolean restaurantCheck() throws SQLException{
-//		//true - Stadt existiert - liegt in der Datenbank vor
-//		//false - Stadt existiert - liegt nicht in der Datenbank vor
-//		String sql = "select name from restaurants where plz = ?";
-//		System.out.println(sql);
-//		PreparedStatement prep = this.dbConn.prepareStatement(sql);
-//		prep.setString(1, this.stadtPLZ);
-//		ResultSet dbRes = prep.executeQuery();
-//		boolean check = dbRes.next();
-//		return check;
-//	}
+	public boolean restaurantCheck() throws SQLException {
+	    String sql = "SELECT id FROM restaurant WHERE UPPER(name) = UPPER(?)";
+	    PreparedStatement prep = this.dbConn.prepareStatement(sql);
+	    prep.setString(1, this.newRestName);
+	    ResultSet dbRes = prep.executeQuery();
+	    boolean check = dbRes.next();
+	    return check;
+	}
+	
+	public String findNextAvailableId() throws SQLException {
+        String sql = "SELECT id FROM restaurant";
+        PreparedStatement prep = this.dbConn.prepareStatement(sql);
+        ResultSet resultSet = prep.executeQuery();
+
+        List<String> existingIds = new ArrayList<>();
+
+        while (resultSet.next()) {
+            existingIds.add(resultSet.getString("id"));
+        }
+
+        // Schleife, um die nächste verfügbare ID zu finden
+        int counter = 1;
+        while (true) {
+            String potentialId = "r" + counter;
+            if (!existingIds.contains(potentialId)) {
+                return potentialId; // Die nächste verfügbare ID gefunden
+            }
+            counter++;
+        }
+    }
 	
 	public void restaurantAnlegen() throws SQLException {
-		String sql = "insert into restaurants (id, name, adresse, vegan, vegetarisch, halal, pescetarisch, glutenfrei, preisklasse) values (?,?,?,?,?,?,?,?,?)";
+		this.idRestaurant = findNextAvailableId();
+		String sql = "insert into restaurant (id, name, adresse, plz, vegan, vegetarisch, halal, pescetarisch, glutenfrei, preisklasse) values (?,?,?,?,?,?,?,?,?,?)";
 		System.out.println(sql);
 		PreparedStatement prep = this.dbConn.prepareStatement(sql);
 		prep.setString(1, this.idRestaurant);

@@ -1,3 +1,4 @@
+<%@page import="stadtGuideBeans.stadtBean"%>
 <%@page import="stadtGuideBeans.restaurantBean"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -6,9 +7,11 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Application</title>
+<script type="text/javascript" src="../js/addKulturJS.js"></script>
 </head>
 <body>
 <jsp:useBean id="restB" class="stadtGuideBeans.restaurantBean" scope="session"/>
+<jsp:useBean id="sb" class="stadtGuideBeans.stadtBean" scope="session"/>
 <%
 	String newRestName = request.getParameter("newRestName");
 	String newRestAdresse = request.getParameter("newRestAdresse");
@@ -32,6 +35,18 @@
 	if(returnBttn == null){returnBttn = "";}
 	
 	if(confirmBttn.equals("Bestaetigen")){
+		if(restB.restaurantCheck()){
+			
+			String errorMessage = "Das Restaurant existiert bereits.";
+	        %>
+	        <script>
+	        showError("<%= errorMessage %>");
+	        </script>
+	        <%
+	        response.sendRedirect("../views/addRestaurantView.jsp");
+		}else {
+		String stadtPLZ = sb.getStadtPLZ();
+		restB.setStadtPLZ(stadtPLZ);
 		restB.setNewRestName(newRestName);
 		restB.setNewRestAdresse(newRestAdresse);
 		restB.setVegan(vegan);
@@ -41,7 +56,7 @@
 		restB.setGlutenfrei(glutenfrei);
 		restB.setRestPreis(restPreis);
 		restB.restaurantAnlegen();
-		response.sendRedirect("../views/stadtView.jsp");
+		response.sendRedirect("../views/stadtView.jsp");}
 	}else if(returnBttn.equals("Zurueck")){
 		response.sendRedirect("../views/addToStadtView.jsp");
 	}else{
