@@ -18,35 +18,14 @@ public class stadtBean {
 	String stadtEinwohner;
 	String stadtSchauen;
 	String gesucht; 
+	String[] preise;
+	String[] options;
+	String[] unterkunft;
+	String[] kultur;
+	String[] aktivitaet;
 	boolean firstset;
-
-	//Booleanwerte für Preise
-	boolean guenstig;
-	boolean normal;
-	boolean teuer;
-	//Booleanwerte für Restaurant
-	boolean vegan;
-	boolean vegetarisch;
-	boolean halal;
-	boolean glutenfrei;
-	boolean pescetarisch;
-	//Booleanwerte für Unterkunft
-	boolean bnb;
-	boolean hotel;
-	boolean fw;
-	//Booleanwerte für Kultur
-	boolean m;
-	boolean hp;
-	boolean t;
-	boolean s;
-	//Booleanwerte für Aktivitaet
-	boolean sp;
-	boolean u;
-	boolean b;
 	
 	Connection dbConn;
-	
-	
 	
 	public stadtBean() throws NoConnectionException {
 		this.dbConn = new PostgreSQLAccess().getConnection();
@@ -63,24 +42,7 @@ public class stadtBean {
 		this.stadtSchauen = "";
 		this.gesucht = "";
 		this.firstset = false;
-		this.guenstig = false;
-		this.normal = false;
-		this.teuer = false;
-		this.vegan = false;
-		this.vegetarisch = false;
-		this.halal = false;
-		this.glutenfrei = false;
-		this.pescetarisch = false;
-		this.bnb = false;
-		this.hotel = false;
-		this.fw = false;
-		this.m = false;
-		this.hp = false;
-		this.t = false;
-		this.s = false;
-		this.sp = false;
-		this.u = false;
-		this.b = false;
+
 	}
 
 	//Setzt die Variablen auf die Ausgaben der Datenbank
@@ -97,96 +59,201 @@ public class stadtBean {
 			}
 	}
 	
-	//Suche nach Datenbank einträgen mit gegebenen Kriterien	
-	public String getSearchResults() throws NoConnectionException, SQLException{
+	
+	public String getSearchResults(){
 		return "";
 	}
 	
+	//Suche nach Datenbank einträgen mit gegebenen Kriterien	
 	public void searchResults() throws NoConnectionException, SQLException{
 			String output = "";
-			System.out.println(this.gesucht);
 			String sql = "SELECT * FROM " + this.gesucht;
 			
-			if(this.gesucht.equals("restaurant")){
-				sql += "WHERE (";
-				if(vegan==true){
-					if(firstset==true){
-						sql += " OR ";
-					}else{
-						firstset=true;
-					}
-					sql += "vegan = true";
-				}
-				if(vegetarisch==true){
-					if(firstset==true){
-						sql += " OR ";
-					}else{
-						firstset=true;
-					}
-					sql += "vegetarisch = true";
-				}
-				if(pescetarisch==true){
-					if(firstset==true){
-						sql += " OR ";
-					}else{
-						firstset=true;
-					}
-					sql += "pescetarisch = true";
-				}
-				if(halal==true){
-					if(firstset==true){
-						sql += " OR ";
-					}else{
-						firstset=true;
-					}
-					sql += "halal = true";
-				}
-				if(glutenfrei==true){
-					if(firstset==true){
-						sql += " OR ";
-					}else{
-						firstset=true;
-					}
-					sql += "glutenfrei = true";
-				}
-				
-				sql += ")";
-				
-				
-
-			}else if(this.gesucht.equals("unterkunft")){
-				sql += " WHERE"+
-						" bnb = " + this.bnb+
-						" AND  = " + this.hotel+
-						" AND  = " + this.fw;
-			}else if(this.gesucht.equals("kultur")){
-				sql += " WHERE"+
-						"  	= " + this.m+
-						" AND  = " + this.hp+
-						" AND  = " + this.t+
-						" AND  = " + this.s;
-			}else if(this.gesucht.equals("aktivitaet")){
-				sql += " WHERE"+
-						"  = " + this.sp +
-						" AND = " + this.u +
-						" AND = " + this.b;
+			//Suchoptionen für Restaurant
+			if(options!=null){
+				sql += "WHERE ( ";
+				for(int i=0;i<options.length;i++){
+					if(options[i].equals("pescetarisch")){
+						if(firstset==true){
+							sql += " OR ";
+						}else{
+							firstset=true;
+						}
+						sql += "pescetarisch = true";
+					}else if(options[i].equals("vegetarisch")){
+						if(firstset==true){
+							sql += " OR ";
+						}else{
+							firstset=true;
+						}
+						sql += "vegetarisch = true";
+					}else if(options[i].equals("vegan")){
+						if(firstset==true){
+							sql += " OR ";
+						}else{
+							firstset=true;
+						}
+						sql += "vegan = true";
+					}else if(options[i].equals("halal")){
+						if(firstset==true){
+							sql += " OR ";
+						}else{
+							firstset=true;
+						}
+						sql += "halal = true";
+					}else if(options[i].equals("glutenfrei")){
+						if(firstset==true){
+							sql += " OR ";
+						}else{
+							firstset=true;
+						}
+						sql += "glutenfrei = true";
+					}	
 			}
-			
-			sql += " AND(  "
-					+ "=" + this.guenstig +
-					" OR  =" + this.normal +
-					" OR  =" + this.teuer + ")";
-			
-			ResultSet dbRes = new PostgreSQLAccess().getConnection().
-						prepareStatement(sql).executeQuery();
-			while (dbRes.next()){
-			output += "test " + dbRes.getString("name");
-			}
-			if(dbRes.next()==false){
-				System.out.println("Leider noch keine Daten vorhanden");
-			}
-			System.out.println(output);
+			sql += ")";
+			firstset=false;
 		}
+			else if(unterkunft!=null){
+				sql += "WHERE ( ";
+				for(int i=0;i<unterkunft.length;i++){
+					if(unterkunft[i].equals("hotel")){
+						if(firstset==true){
+							sql += " OR ";
+						}else{
+							firstset=true;
+						}
+						sql += "hotel = true";
+					}else if(unterkunft[i].equals("airbnb")){
+						if(firstset==true){
+							sql += " OR ";
+						}else{
+							firstset=true;
+						}
+						sql += "airbnb = true";
+					}else if(unterkunft[i].equals("ferienwohnung")){
+						if(firstset==true){
+							sql += " OR ";
+						}else{
+							firstset=true;
+						}
+						sql += "ferienwohnung = true";
+					}
+				}
+				sql += ")";
+				firstset=false;				
+			}
+			else if(kultur!=null){
+				sql += "WHERE ( ";
+				for(int i=0;i<kultur.length;i++){
+						if(kultur[i].equals("museum")){
+							if(firstset==true){
+								sql += " OR ";
+							}else{
+								firstset=true;
+							}
+							sql += "museum = true";
+						}else if(kultur[i].equals("historischerplatz")){
+							if(firstset==true){
+								sql += " OR ";
+							}else{
+								firstset=true;
+							}
+							sql += "historischerplatz = true";
+						}else if(kultur[i].equals("tour")){
+							if(firstset==true){
+								sql += " OR ";
+							}else{
+								firstset=true;
+							}
+							sql += "tour = true";
+						}else if(kultur[i].equals("sehenswuerdigkeit")){
+							if(firstset==true){
+								sql += " OR ";
+							}else{
+								firstset=true;
+							}
+							sql += "sehenswuerdigkeit = true";
+						}
+					}
+					sql += ")";
+					firstset=false;
+				}
+			
+			else if(aktivitaet!=null){
+				sql += "WHERE ( ";
+				for(int i=0;i<aktivitaet.length;i++){
+						if(aktivitaet[i].equals("sportlich")){
+							if(firstset==true){
+								sql += " OR ";
+							}else{
+								firstset=true;
+							}
+							sql += "sportlich = true";
+						}else if(aktivitaet[i].equals("unterhaltung")){
+							if(firstset==true){
+								sql += " OR ";
+							}else{
+								firstset=true;
+							}
+							sql += "unterhaltung = true";
+						}else if(aktivitaet[i].equals("bildung")){
+							if(firstset==true){
+								sql += " OR ";
+							}else{
+								firstset=true;
+							}
+							sql += "bildung = true";
+						}
+					}
+				sql += ")";
+				firstset=false;
+				}
+			
+			if(preise!=null){
+				sql+=" AND (";
+				for(int i=0;i<preise.length;i++){
+					if(preise[i].equals("cheap")){
+						if(firstset==true){
+							sql += " OR ";
+						}else{
+							firstset=true;
+						}
+						sql += "guenstig = true";
+					}else if(preise[i].equals("normal")){
+						if(firstset==true){
+							sql += " OR ";
+						}else{
+							firstset=true;
+						}
+						sql += "normal = true";
+					}else if(preise[i].equals("expensive")){
+						if(firstset==true){
+							sql += " OR ";
+						}else{
+							firstset=true;
+						}
+						sql += "teuer = true";
+					}
+				sql+= ")";
+				}
+			}
+			
+		
+			
+			
+		//Abfrage der SQL-Query und Speicherung in ResultSet 
+		ResultSet dbRes = new PostgreSQLAccess().getConnection().
+					prepareStatement(sql).executeQuery();
+		
+		//Ausgabe der Daten im ResultSet für auflistung
+		while (dbRes.next()){
+		output += "test " + dbRes.getString("name");
+		System.out.println(output);
+		}
+		if(dbRes.next()==false){
+			System.out.println("Leider noch keine Daten vorhanden");
+		}
+	}
 	
 	public void setOptionsBoolean(String Options){
 		System.out.println(Options);
@@ -209,18 +276,18 @@ public class stadtBean {
 							"</tr>\n" +
 							"<tr>\n" +
 								"<td>\n" + 
-									"<label><input type='checkbox' name='options[]' value='pescetarisch' />Pescetarisch<br></label>\n" +
-									"<label><input type='checkbox' name='options[]' value='vegetarisch' />Vegetarisch<br></label>" +
-									"<label><input type='checkbox' name='options[]' value='vegan' />Vegan<br></label>\n" +
+									"<label><input type='checkbox' name='options' value='pescetarisch' />Pescetarisch<br></label>\n" +
+									"<label><input type='checkbox' name='options' value='vegetarisch' />Vegetarisch<br></label>" +
+									"<label><input type='checkbox' name='options' value='vegan' />Vegan<br></label>\n" +
 								"</td>\n" +
 								"<td>\n" +
-									"<label><input type='checkbox' name='options[]' value='glutenfrei' />Glutenfrei<br></label>\n" +
-									"<label><input type='checkbox' name='options[]' value='halal' />Halal<br></label>" +
+									"<label><input type='checkbox' name='options' value='glutenfrei' />Glutenfrei<br></label>\n" +
+									"<label><input type='checkbox' name='options' value='halal' />Halal<br></label>" +
 								"</td>\n" +
 								"<td width='35%'>\n" +
-									"<label><input type='checkbox' name='preis[]' value='cheap' />Günstig<br></label>" +
-									"<label><input type='checkbox' name='preis[]' value='normal' />Normal<br></label>" +
-									"<label><input type='checkbox' name='preis[]' value='expensive' />Teuer<br></label>" +
+									"<label><input type='checkbox' name='preis' value='cheap' />Günstig<br></label>" +
+									"<label><input type='checkbox' name='preis' value='normal' />Normal<br></label>" +
+									"<label><input type='checkbox' name='preis' value='expensive' />Teuer<br></label>" +
 								"</td>\n" +				
 							"</tr>\n" +
 						"</table>";		
@@ -240,14 +307,14 @@ public class stadtBean {
 							"</tr>\n" +
 							"<tr>\n" +
 								"<td>\n" + 
-									"<label><input type='checkbox' name='unterkunft[]' value='hotel' />Hotel<br></label>\n" +
-									"<label><input type='checkbox' name='unterkunft[]' value='airbnb' />AirBnB<br></label>" +
-									"<label><input type='checkbox' name='unterkunft[]' value='ferienwohnung' />Ferienwohnung<br></label>\n" +
+									"<label><input type='checkbox' name='unterkunft' value='hotel' />Hotel<br></label>\n" +
+									"<label><input type='checkbox' name='unterkunft' value='airbnb' />AirBnB<br></label>" +
+									"<label><input type='checkbox' name='unterkunft' value='ferienwohnung' />Ferienwohnung<br></label>\n" +
 								"</td>\n" +
 								"<td width='35%'>\n" +
-									"<label><input type='checkbox' name='preis[]' value='cheap' />Günstig<br></label>" +
-									"<label><input type='checkbox' name='preis[]' value='normal' />Normal<br></label>" +
-									"<label><input type='checkbox' name='preis[]' value='expensive' />Teuer<br></label>" +
+									"<label><input type='checkbox' name='preis' value='cheap' />Günstig<br></label>" +
+									"<label><input type='checkbox' name='preis' value='normal' />Normal<br></label>" +
+									"<label><input type='checkbox' name='preis' value='expensive' />Teuer<br></label>" +
 								"</td>\n" +				
 							"</tr>\n" +
 						"</table>";		
@@ -266,18 +333,18 @@ public class stadtBean {
 							"</tr>\n" +
 							"<tr>\n" +
 								"<td '>\n" + 
-									"<label><input type='checkbox' name='kultur[]' value='museum' />Museum<br></label>\n" +
-									"<label><input type='checkbox' name='kultur[]' value='historischerplatz' />Historischer Platz<br></label>" +
-									"<label><input type='checkbox' name='kultur[]' value='tour' />Tour<br></label>\n" +
+									"<label><input type='checkbox' name='kultur' value='museum' />Museum<br></label>\n" +
+									"<label><input type='checkbox' name='kultur' value='historischerplatz' />Historischer Platz<br></label>" +
+									"<label><input type='checkbox' name='kultur' value='tour' />Tour<br></label>\n" +
 								"</td>\n" +
 								"<td>\n" + 
-									"<label><input type='checkbox' name='kultur[]' value='sehenswuerdigkeit' />Sehenswürdigkeit<br></label>\n" +
-									"<label><input type='checkbox' name='kultur[]' value='sonstiges' />Sonstiges<br></label>" +
+									"<label><input type='checkbox' name='kultur' value='sehenswuerdigkeit' />Sehenswürdigkeit<br></label>\n" +
+									"<label><input type='checkbox' name='kultur' value='sonstiges' />Sonstiges<br></label>" +
 							"</td>\n" +	
 								"<td >\n" +
-									"<label><input type='checkbox' name='preis[]' value='cheap' />Günstig<br></label>" +
-									"<label><input type='checkbox' name='preis[]' value='normal' />Normal<br></label>" +
-									"<label><input type='checkbox' name='preis[]' value='expensive' />Teuer<br></label>" +
+									"<label><input type='checkbox' name='preis' value='cheap' />Günstig<br></label>" +
+									"<label><input type='checkbox' name='preis' value='normal' />Normal<br></label>" +
+									"<label><input type='checkbox' name='preis' value='expensive' />Teuer<br></label>" +
 								"</td>\n" +				
 							"</tr>\n" +
 						"</table>";		
@@ -293,9 +360,9 @@ public class stadtBean {
 							"</tr>\n" +
 							"<tr>\n" +
 								"<td width='35%'>\n" +
-									"<label><input type='checkbox' name='preis[]' value='cheap' />Günstig<br></label>" +
-									"<label><input type='checkbox' name='preis[]' value='normal' />Normal<br></label>" +
-									"<label><input type='checkbox' name='preis[]' value='expensive' />Teuer<br></label>" +
+									"<label><input type='checkbox' name='preis' value='cheap' />Günstig<br></label>" +
+									"<label><input type='checkbox' name='preis' value='normal' />Normal<br></label>" +
+									"<label><input type='checkbox' name='preis' value='expensive' />Teuer<br></label>" +
 								"</td>\n" +				
 							"</tr>\n" +
 						"</table>";		
@@ -360,6 +427,54 @@ public class stadtBean {
 	}
 
 
+	public boolean isFirstset() {
+		return firstset;
+	}
+
+	public void setFirstset(boolean firstset) {
+		this.firstset = firstset;
+	}
+
+	public String[] getPreise() {
+		return preise;
+	}
+
+	public void setPreise(String[] preise) {
+		this.preise = preise;
+	}
+
+	public String[] getOptions() {
+		return options;
+	}
+
+	public void setOptions(String[] options) {
+		this.options = options;
+	}
+
+	public String[] getUnterkunft() {
+		return unterkunft;
+	}
+
+	public void setUnterkunft(String[] unterkunft) {
+		this.unterkunft = unterkunft;
+	}
+
+	public String[] getKultur() {
+		return kultur;
+	}
+
+	public void setKultur(String[] kultur) {
+		this.kultur = kultur;
+	}
+
+	public String[] getAktivitaet() {
+		return aktivitaet;
+	}
+
+	public void setAktivitaet(String[] aktivitaet) {
+		this.aktivitaet = aktivitaet;
+	}
+
 	public Connection getDbConn() {
 		return dbConn;
 	}
@@ -367,6 +482,9 @@ public class stadtBean {
 	public void setDbConn(Connection dbConn) {
 		this.dbConn = dbConn;
 	}
+
+	
+	
 	
 	
 }
