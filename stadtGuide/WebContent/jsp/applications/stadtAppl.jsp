@@ -20,6 +20,7 @@
 	String[] kultur = request.getParameterValues("kultur");
 	String[] unterkunft = request.getParameterValues("unterkunft");
 	String[] options = request.getParameterValues("options");
+	String[] aktivitaet = request.getParameterValues("aktivitaet");
 	
 	if(returnBttn== null){returnBttn = "";}
 	if(addToBttn == null){addToBttn = "";}
@@ -36,22 +37,14 @@
 	}else if(addToBttn.equals("Stadt erweitern")){
 		response.sendRedirect("../views/addToStadtView.jsp");
 	}else if(searchBttn.equals("suchen")){
-		//
-	//	if(Arrays.asList(options).contains("cheap")){
-	//		sb.set("Guenstig");
-	//	}if(Arrays.asList(options).contains("normal")){
-	//		sb.setPreis("Normal");
-	//	}if(Arrays.asList(options).contains("expensive")){
-	//		sb.setPreis("Teuer");
-	//	}
-		
-		
-		sb.setGesucht(gesucht);
-		System.out.println(options);
-		System.out.println(gesucht);
-		sb.searchResults();
-		response.sendRedirect("../views/stadtView.jsp");
+		sb.setPreise(preis);
+		sb.setKultur(options);
+		sb.setKultur(kultur);
+		sb.setUnterkunft(unterkunft);
+		sb.setAktivitaet(aktivitaet);
 	}
+		
+		
 %>
 </body>
 </html>
