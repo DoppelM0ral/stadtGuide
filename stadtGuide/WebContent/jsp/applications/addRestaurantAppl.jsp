@@ -41,6 +41,7 @@
 	
 	if(confirmBttn.equals("Bestaetigen")){
 		if(restB.restaurantCheck()){
+			
 	        response.sendRedirect("../views/addRestaurantView.jsp");
 		}else {
 		String stadtPLZ = sb.getStadtPLZ();

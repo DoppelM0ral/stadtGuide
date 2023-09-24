@@ -15,7 +15,6 @@
 	<br>
 	<br>
 	<br>
-	<!-- bb -->
 <form action="../applications/addRestaurantAppl.jsp" method="get">
 		<table>
 			<tr>
