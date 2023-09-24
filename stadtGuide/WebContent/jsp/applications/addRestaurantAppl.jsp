@@ -41,13 +41,6 @@
 	
 	if(confirmBttn.equals("Bestaetigen")){
 		if(restB.restaurantCheck()){
-			
-			String errorMessage = "Das Restaurant existiert bereits.";
-	        %>
-	        <script>
-	        showError("<%= errorMessage %>");
-	        </script>
-	        <%
 	        response.sendRedirect("../views/addRestaurantView.jsp");
 		}else {
 		String stadtPLZ = sb.getStadtPLZ();

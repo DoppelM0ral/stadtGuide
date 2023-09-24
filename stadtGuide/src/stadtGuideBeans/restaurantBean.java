@@ -45,7 +45,7 @@ public class restaurantBean {
 		this.newRestAdresse = "";
 		this.stadtPLZ = "";
 	}
-	
+//	bb
 	public boolean restaurantCheck() throws SQLException {
 	    String sql = "SELECT id FROM restaurant WHERE UPPER(name) = UPPER(?)";
 	    PreparedStatement prep = this.dbConn.prepareStatement(sql);
